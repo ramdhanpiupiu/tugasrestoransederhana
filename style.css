@@ -1,0 +1,1185 @@
+/* =====================================================
+   STYLE.CSS — Restoran Sederhana
+   Tema: modern, bersih, elegan | Warna utama: orange
+   ===================================================== */
+
+/* ---------- 1. CSS VARIABLES (warna & pengaturan dasar) ---------- */
+:root {
+    /* Warna utama */
+    --orange:        #ff5722;   /* primary color identitas website */
+    --orange-dark:   #e64a19;   /* orange saat tombol di-hover */
+    --orange-soft:   #fff1ea;   /* orange sangat muda untuk latar lembut */
+
+    /* Warna pendukung */
+    --dark:          #23272f;   /* dark gray untuk navbar & footer */
+    --dark-soft:     #2f343d;   /* variasi dark gray */
+    --cream:         #fdf8f1;   /* krem sebagai latar belakang halaman */
+    --white:         #ffffff;   /* background card */
+    --green:         #25d366;   /* hijau WhatsApp */
+    --green-dark:    #1da851;
+    --green-promo:   #2e7d32;   /* hijau untuk harga/promo */
+    --text:          #35383d;   /* warna teks utama */
+    --text-soft:     #6b7078;   /* warna teks sekunder */
+    --line:          #f0e2d4;   /* garis pemisah bernuansa krem */
+
+    /* Bentuk & bayangan (konsisten, tidak berlebihan) */
+    --radius:        14px;
+    --radius-small:  10px;
+    --shadow:        0 4px 14px rgba(60, 40, 20, 0.07);
+    --shadow-hover:  0 10px 24px rgba(60, 40, 20, 0.13);
+
+    /* Font */
+    --font-body:     "Plus Jakarta Sans", "Segoe UI", Arial, sans-serif;
+    --font-judul:    "Playfair Display", Georgia, serif;
+}
+
+/* ---------- 2. RESET SEDERHANA ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;                                  /* smooth scrolling saat pindah section */
+    scroll-padding-top: 80px;                                 /* agar judul section tidak tertutup navbar */
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 16px;                                          /* body text nyaman dibaca di semua layar */
+    line-height: 1.7;
+    color: var(--text);
+    background-color: var(--cream);
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;                                       /* jaring pengaman; penyebab asli sudah diperbaiki */
+}
+
+img, video {
+    max-width: 100%;
+    height: auto;                                            /* gambar ikut mengecil tanpa gepeng */
+    display: block;
+    border-radius: var(--radius-small);
+}
+
+/* Semua elemen tidak boleh lebih lebar dari induknya */
+img, video, table, iframe, svg {
+    max-width: 100%;
+}
+
+/* Teks panjang (email, URL) pecah hanya jika benar-benar tidak muat */
+h1, h2, h3, p, li, dd, dt, td, th, a {
+    overflow-wrap: break-word;
+    word-break: normal;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: var(--orange);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--orange-dark);
+}
+
+/* ---------- 3. UTILITAS ---------- */
+.kartu {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin-bottom: 24px;
+}
+
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    background: var(--dark);
+    color: var(--white);
+    padding: 10px 16px;
+    border-radius: 0 0 var(--radius-small) 0;
+    z-index: 200;
+}
+
+.skip-link:focus {
+    left: 0;
+}
+
+/* ---------- 4. HEADER ---------- */
+.site-header {
+    background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+    color: var(--white);
+}
+
+.header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 26px 20px;
+    display: flex;                       /* logo di kiri, info jam buka di kanan */
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.logo-icon {
+    font-size: 42px;
+    background: rgba(255, 255, 255, 0.18);
+    width: 68px;
+    height: 68px;
+    display: grid;
+    place-items: center;                 /* ikon berada tepat di tengah kotak */
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.35);
+}
+
+.logo-teks h1 {
+    font-family: var(--font-judul);
+    font-size: clamp(22px, 4.5vw, 30px);   /* heading responsif: mengecil mulus di HP */
+    line-height: 1.25;
+    letter-spacing: 0.5px;
+}
+
+.tagline {
+    font-size: clamp(12.5px, 2.5vw, 14px);
+    opacity: 0.92;
+}
+
+.header-info {
+    text-align: right;
+    max-width: 100%;
+}
+
+.jam-buka {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: clamp(13px, 2.5vw, 14px);
+    margin-bottom: 10px;
+    justify-content: flex-end;
+}
+
+/* titik hijau berkedip = restoran sedang buka */
+.titik-buka {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #7bed9f;
+    animation: kedip 1.6s infinite;
+}
+
+@keyframes kedip {
+    50% { opacity: 0.3; }
+}
+
+/* ---------- 5. TOMBOL (dengan animasi hover) ---------- */
+.btn {
+    display: inline-block;
+    padding: 11px 20px;
+    border: none;
+    border-radius: var(--radius-small);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);         /* tombol terangkat saat disentuh */
+    box-shadow: var(--shadow-hover);
+}
+
+.btn-whatsapp {
+    background: var(--green);
+    color: var(--white);
+}
+
+.btn-whatsapp:hover {
+    background: var(--green-dark);
+    color: var(--white);
+}
+
+.btn-utama {
+    background: var(--orange);
+    color: var(--white);
+}
+
+.btn-utama:hover {
+    background: var(--orange-dark);
+    color: var(--white);
+}
+
+.btn-promo {
+    background: var(--green-promo);
+    color: var(--white);
+}
+
+.btn-promo:hover {
+    background: #256429;
+    color: var(--white);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--orange);
+    border: 2px solid var(--orange);
+}
+
+.btn-outline:hover {
+    background: var(--orange);
+    color: var(--white);
+}
+
+.btn-kecil {
+    padding: 8px 14px;
+    font-size: 13px;
+}
+
+.btn-penuh {
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin-top: 14px;
+}
+
+.baris-tombol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-top: 14px;
+}
+
+/* ---------- 6. NAVBAR ---------- */
+.navbar {
+    background: var(--dark);
+    position: sticky;                    /* navbar tetap terlihat saat halaman digulir */
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow);
+}
+
+.nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* label kecil "Menu" — hanya tampil di samping hamburger pada layar HP */
+.nav-merek {
+    display: none;
+    color: var(--white);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.nav-menu {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.nav-link {
+    display: block;
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 16px 22px;
+    position: relative;
+    transition: background 0.25s, color 0.25s;
+}
+
+/* garis orange di bawah menu (muncul saat hover / aktif) */
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    width: 0;
+    height: 3px;
+    border-radius: 3px;
+    background: var(--orange);
+    transition: width 0.25s, left 0.25s;
+}
+
+.nav-link:hover,
+.nav-link.aktif {
+    background: var(--dark-soft);
+    color: var(--white);
+}
+
+.nav-link:hover::after,
+.nav-link.aktif::after {
+    width: 55%;
+    left: 22.5%;
+}
+
+/* tombol hamburger: disembunyikan di layar besar */
+.hamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 14px;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger .garis {
+    width: 26px;
+    height: 3px;
+    border-radius: 3px;
+    background: var(--white);
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+/* ubah bentuk hamburger menjadi tanda silang (X) saat menu terbuka */
+.hamburger.buka .garis:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.hamburger.buka .garis:nth-child(2) { opacity: 0; }
+.hamburger.buka .garis:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* ---------- 7. TATA LETAK UTAMA (GRID: SIDEBAR + KONTEN) ---------- */
+.halaman {
+    max-width: 1100px;
+    margin: 24px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: minmax(240px, 280px) minmax(0, 1fr); /* sidebar kiri proporsional, konten kanan */
+    grid-template-areas: "sidebar konten"; /* konten utama SELALU di kolom lebar */
+    gap: 24px;
+    align-items: start;
+}
+
+.konten {
+    grid-area: konten;                   /* tempatkan konten di area "konten" */
+    min-width: 0;                        /* agar tabel panjang tidak meluber keluar grid */
+}
+
+.sidebar {
+    grid-area: sidebar;                  /* tempatkan sidebar di area "sidebar" */
+    position: sticky;                    /* seluruh sidebar mengikuti saat halaman digulir */
+    top: 82px;                           /* tidak menutupi navbar */
+    align-self: start;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;                           /* jarak antar kartu sidebar */
+}
+
+/* jarak antar kartu sidebar diatur oleh gap, bukan margin */
+.sidebar .kartu {
+    margin-bottom: 0;
+}
+
+/* ---------- 8. JUDUL SECTION ---------- */
+.kartu h2 {
+    color: var(--orange);
+    font-size: clamp(19px, 4.2vw, 24px);   /* heading responsif: tidak pernah keluar layar */
+    line-height: 1.35;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+/* garis kecil orange di kiri judul */
+.kartu h2::before {
+    content: "";
+    width: 6px;
+    height: 24px;
+    border-radius: 3px;
+    background: var(--orange);
+    flex-shrink: 0;
+}
+
+.kartu h3 {
+    font-size: 16px;
+    color: var(--dark);
+    margin: 18px 0 8px;
+}
+
+.kartu p {
+    margin: 10px 0;
+}
+
+.catatan-kecil {
+    font-size: 13px;
+    color: var(--text-soft);
+}
+
+/* ---------- 9. SIDEBAR ---------- */
+/* .sidebar sendiri sudah dibuat sticky di aturan grid di atas.
+   .kartu-sidebar hanya mengatur padding kartu di dalam sidebar. */
+.kartu-sidebar {
+    padding: 20px;
+}
+
+.judul-sidebar {
+    font-size: 17px;
+}
+
+.info-tabel {
+    margin-top: 6px;
+}
+
+.info-baris {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 9px 2px;
+    font-size: 13.5px;
+    border-bottom: 1px dashed var(--line);
+    transition: background 0.2s;
+}
+
+/* animasi hover pada baris info sidebar */
+.info-baris:hover {
+    background: var(--orange-soft);
+    border-radius: var(--radius-small);
+}
+
+.info-baris dt {
+    font-weight: 700;
+    color: var(--text-soft);
+    white-space: nowrap;
+}
+
+.info-baris dd {
+    text-align: right;
+    overflow-wrap: break-word;                   /* pecah hanya jika benar-benar tidak muat */
+    word-break: normal;
+}
+
+.daftar-kategori {
+    margin-top: 4px;
+}
+
+.daftar-kategori a {
+    display: block;
+    padding: 9px 12px;
+    border-radius: var(--radius-small);
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s, padding-left 0.2s;
+}
+
+/* hover: bergerak sedikit ke kanan + latar orange muda */
+.daftar-kategori a:hover {
+    background: var(--orange-soft);
+    color: var(--orange-dark);
+    padding-left: 18px;
+}
+
+/* ---------- 10. SECTION BERANDA: 3 KEUNGGULAN ---------- */
+.keunggulan {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 18px;
+}
+
+.keunggulan-item {
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 18px 14px;
+    text-align: center;
+    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+
+/* animasi hover card: terangkat + bayangan lebih dalam */
+.keunggulan-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--orange);
+}
+
+.keunggulan-ikon {
+    font-size: 30px;
+    display: inline-block;
+    background: var(--orange-soft);
+    width: 58px;
+    height: 58px;
+    line-height: 58px;
+    border-radius: 50%;
+    margin-bottom: 8px;
+}
+
+.keunggulan-item h3 {
+    font-size: 14.5px;
+    margin: 4px 0;
+}
+
+.keunggulan-item p {
+    font-size: 13px;
+    color: var(--text-soft);
+    margin: 4px 0 0;
+}
+
+/* ---------- 11. TABEL ---------- */
+.table-wrap {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;                    /* hanya wrapper tabel yang boleh scroll horizontal */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    border-radius: var(--radius-small);
+    border: 1px solid var(--line);
+    margin: 12px 0;
+}
+
+.table-wrap table {
+    width: 100%;
+}
+
+/* Hanya tabel yang benar-benar lebar yang diberi lebar minimum.
+   Tabel kecil (mis. Alamat) dibiarkan membungkus teks agar tanpa scroll. */
+.menu-tabel    { min-width: 560px; }
+.promo-paket   { min-width: 640px; }
+.promo-harian  { min-width: 420px; }
+.langkah-tabel { min-width: 480px; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+caption {
+    caption-side: top;
+    text-align: left;
+    font-style: italic;
+    font-size: 12.5px;
+    color: var(--text-soft);
+    padding: 8px 10px;
+}
+
+th {
+    background: var(--orange);
+    color: var(--white);
+    padding: 11px 12px;
+    text-align: left;
+    font-size: 13.5px;
+    white-space: nowrap;
+}
+
+td {
+    padding: 11px 12px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+}
+
+tbody tr, table tr {
+    transition: background 0.2s;
+}
+
+/* animasi hover pada baris tabel */
+table tr:hover td {
+    background: var(--orange-soft);
+}
+
+/* Tabel menu (kategori + harga) */
+.menu-tabel td.kategori {
+    background: var(--orange-soft);
+    color: var(--orange-dark);
+    font-weight: 700;
+    width: 140px;
+    white-space: nowrap;
+}
+
+.menu-tabel td.harga,
+.promo-paket td.coret,
+.promo-paket td.promo,
+.promo-paket td.hemat {
+    white-space: nowrap;
+}
+
+td.harga {
+    font-weight: 700;
+    color: var(--green-promo);
+    text-align: right;
+    width: 150px;
+}
+
+/* Tabel promo paket */
+.promo-paket th {
+    background: var(--green-promo);
+}
+
+.promo-paket td.nama { font-weight: 700; color: var(--green-promo); }
+.promo-paket td.coret { text-decoration: line-through; color: var(--text-soft); }
+.promo-paket td.promo { color: var(--green-promo); font-weight: 700; }
+.promo-paket td.hemat { color: #d84315; font-weight: 700; }
+
+.promo-paket td.catatan {
+    font-style: italic;
+    font-size: 12px;
+    color: var(--text-soft);
+    background: #f4faf4;
+}
+
+/* Tabel promo harian */
+.promo-harian th {
+    background: var(--orange);
+}
+
+.promo-harian td.hari { font-weight: 700; white-space: nowrap; }
+
+.promo-harian td.diskon {
+    color: #d84315;
+    font-weight: 700;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Tabel langkah pemesanan */
+.langkah-tabel th {
+    background: var(--dark);
+}
+
+.langkah-tabel td.no {
+    text-align: center;
+    font-weight: 700;
+    color: var(--orange-dark);
+    background: var(--orange-soft);
+    width: 45px;
+}
+
+.langkah-tabel td.tahap {
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* Tabel alamat */
+.alamat-tabel td.label {
+    font-weight: 700;
+    width: 130px;
+    color: var(--text-soft);
+    white-space: nowrap;
+}
+
+/* ---------- 12. MENU FAVORIT (GRID KARTU) ---------- */
+.favorit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));   /* desktop: 3 kolom */
+    gap: 18px;
+    margin-top: 16px;
+}
+
+.kartu-menu {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+
+.kartu-menu:hover {
+    transform: translateY(-6px);             /* card terangkat saat hover */
+    box-shadow: var(--shadow-hover);
+    border-color: var(--orange);
+}
+
+.kartu-menu-gambar {
+    overflow: hidden;
+}
+
+.kartu-menu-gambar img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 0;
+    transition: transform 0.4s;              /* gambar membesar perlahan */
+}
+
+.kartu-menu:hover .kartu-menu-gambar img {
+    transform: scale(1.06);
+}
+
+.kartu-menu-isi {
+    padding: 14px;
+}
+
+.kartu-menu-isi h3 {
+    font-size: 15.5px;
+    margin: 0 0 4px;
+}
+
+.kartu-menu-isi p {
+    font-size: 13px;
+    color: var(--text-soft);
+    margin: 4px 0;
+}
+
+.harga-menu {
+    font-weight: 700;
+    color: var(--orange-dark);
+}
+
+.kartu-menu-isi .btn {
+    margin-top: 8px;
+}
+
+/* ---------- 13. VIDEO ---------- */
+.video-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    gap: 20px;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.video-bingkai video {
+    width: 100%;
+    background: #000;
+}
+
+/* ---------- 14. FORM PEMESANAN ---------- */
+.form-pesan {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));    /* 2 kolom di layar lebar */
+    gap: 14px 18px;
+    margin-top: 14px;
+}
+
+.form-grup {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-grup-penuh {
+    grid-column: 1 / -1;                     /* memakan lebar 2 kolom */
+}
+
+.form-grup label {
+    font-size: 13.5px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.wajib {
+    color: #d84315;
+}
+
+.form-grup input,
+.form-grup select,
+.form-grup textarea {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--text);
+    padding: 11px 12px;
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius-small);
+    background: var(--cream);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    width: 100%;
+}
+
+/* efek fokus: garis orange + bayangan lembut */
+.form-grup input:focus,
+.form-grup select:focus,
+.form-grup textarea:focus {
+    outline: none;
+    border-color: var(--orange);
+    box-shadow: 0 0 0 3px rgba(255, 87, 34, 0.15);
+    background: var(--white);
+}
+
+.pesan-error {
+    color: #d84315;
+    font-size: 12.5px;
+    min-height: 18px;
+    margin-top: 4px;
+}
+
+/* tampilan input salah (ditambahkan oleh JavaScript) */
+.input-salah {
+    border-color: #d84315;
+    background: #fff5f3;
+}
+
+.form-sukses {
+    color: var(--green-promo);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* ---------- 15. FOOTER ---------- */
+.site-footer {
+    background: var(--dark);
+    color: #d7dade;
+    margin-top: 30px;
+}
+
+.footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 36px 20px 20px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1.2fr;
+    gap: 26px;
+}
+
+.footer-judul {
+    font-size: 17px;
+    color: var(--white);
+    margin-bottom: 8px;
+}
+
+.footer-kolom p,
+.footer-tautan li {
+    font-size: 13.5px;
+    margin-bottom: 7px;
+}
+
+.footer-tautan a {
+    color: #d7dade;
+    transition: color 0.2s, padding-left 0.2s;
+}
+
+.footer-tautan a:hover {
+    color: var(--orange);
+    padding-left: 6px;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 13px;
+    color: #9aa0a8;
+    padding: 14px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ---------- 16. TOMBOL KEMBALI KE ATAS ---------- */
+.tombol-ke-atas {
+    position: fixed;                     /* selalu di pojok layar */
+    right: 22px;
+    bottom: 22px;
+    width: 46px;
+    height: 46px;
+    border: none;
+    border-radius: 50%;
+    background: var(--orange);
+    color: var(--white);
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: var(--shadow-hover);
+    opacity: 0;                          /* disembunyikan sebelum halaman digulir */
+    visibility: hidden;
+    transform: translateY(14px);
+    transition: opacity 0.3s, transform 0.3s, visibility 0.3s, background 0.3s;
+    z-index: 150;
+}
+
+/* kelas .muncul ditambahkan JavaScript saat halaman digulir ke bawah */
+.tombol-ke-atas.muncul {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.tombol-ke-atas:hover {
+    background: var(--orange-dark);
+}
+
+/* ---------- 17. ANIMASI ELEMEN MASUK VIEWPORT ---------- */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* kelas .tampak ditambahkan JavaScript saat elemen masuk layar */
+.reveal.tampak {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* pengguna yang menonaktifkan animasi tetap nyaman */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* =====================================================
+   18. RESPONSIVE — TABLET (layar ≤ 992px)
+   ===================================================== */
+@media (max-width: 992px) {
+    .halaman {
+        grid-template-columns: 1fr;                          /* satu kolom penuh, tanpa sidebar sempit */
+        grid-template-areas:
+            "sidebar"
+            "konten";                                        /* sidebar di ATAS konten utama */
+        gap: 20px;
+        margin: 18px auto;
+    }
+
+    .konten {
+        min-width: 0;
+    }
+
+    .sidebar {
+        position: static;                                    /* tidak sticky di tablet/mobile */
+        display: grid;
+        grid-template-columns: 1fr 1fr;                      /* 2 kartu sidebar berdampingan */
+        gap: 20px;
+        min-width: 0;
+    }
+
+    .favorit-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .keunggulan {
+        grid-template-columns: repeat(2, 1fr);               /* tablet: 2 card per baris */
+        gap: 14px;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;                          /* video di atas, teks di bawah */
+    }
+
+    .footer-inner {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* =====================================================
+   19. RESPONSIVE — MOBILE (layar ≤ 768px)
+   ===================================================== */
+@media (max-width: 768px) {
+
+    /* --- NAVBAR berubah jadi hamburger menu --- */
+    .nav-inner {
+        justify-content: space-between;
+    }
+
+    .nav-merek {
+        display: block;                  /* label "Menu" tampil di samping hamburger */
+    }
+
+    .hamburger {
+        display: flex;                   /* tombol hamburger muncul */
+        padding: 12px 14px;
+    }
+
+    .nav-menu {
+        display: none;                   /* menu disembunyikan secara default */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--dark);
+        flex-direction: column;          /* menu tersusun vertikal */
+        box-shadow: var(--shadow-hover);
+    }
+
+    /* kelas .terbuka ditambahkan JavaScript saat hamburger diklik */
+    .nav-menu.terbuka {
+        display: flex;
+        animation: turun 0.3s ease;
+    }
+
+    @keyframes turun {
+        from { opacity: 0; transform: translateY(-8px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .nav-link {
+        padding: 14px 22px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-link::after { display: none; }  /* garis bawah tidak perlu di mobile */
+
+    /* --- HEADER jadi satu kolom, rata tengah & compact --- */
+    .header-inner {
+        flex-direction: column;
+        text-align: center;
+        padding: 18px 16px;
+        gap: 14px;
+    }
+
+    .logo {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .logo-teks {
+        text-align: center;
+    }
+
+    .logo-teks h1 { font-size: clamp(21px, 5.5vw, 26px); }
+
+    .header-info {
+        text-align: center;
+        width: 100%;
+    }
+
+    .jam-buka { justify-content: center; }
+
+    /* --- Konten & kartu --- */
+    .kartu {
+        padding: 20px 16px;
+        margin-bottom: 20px;
+    }
+
+    .sidebar {
+        grid-template-columns: 1fr;      /* kartu sidebar tersusun vertikal */
+        gap: 20px;
+    }
+
+    .sidebar .kartu { margin-bottom: 0; }
+
+    .keunggulan {
+        grid-template-columns: 1fr;      /* mobile: 1 card keunggulan per baris */
+        gap: 12px;
+    }
+
+    .favorit-grid {
+        grid-template-columns: 1fr;      /* kartu menu 1 kolom penuh */
+    }
+
+    .form-pesan {
+        grid-template-columns: 1fr;      /* form 1 kolom */
+        gap: 12px;
+    }
+
+    .footer-inner {
+        grid-template-columns: 1fr;      /* footer 1 kolom */
+        text-align: center;
+        padding: 30px 16px 16px;
+    }
+
+    .baris-tombol {
+        flex-direction: column;
+        align-items: stretch;            /* tombol melebar penuh */
+    }
+
+    .baris-tombol .btn {
+        text-align: center;
+        width: 100%;
+    }
+
+    /* Info kontak sidebar: font sedikit lebih besar agar terbaca jelas */
+    .info-baris {
+        font-size: 14px;
+    }
+
+    /* Tabel sedikit lebih ringkas di layar HP */
+    table { font-size: 13.5px; }
+    th { padding: 10px; }
+    td { padding: 10px; }
+}
+
+/* =====================================================
+   20. RESPONSIVE — HP KECIL (layar ≤ 480px)
+   ===================================================== */
+@media (max-width: 480px) {
+    .header-inner {
+        padding: 16px 14px;
+        gap: 12px;
+    }
+
+    .logo { gap: 8px; }
+
+    .logo-icon {
+        width: 56px;
+        height: 56px;
+        font-size: 34px;
+    }
+
+    .logo-teks h1 { font-size: clamp(19px, 6vw, 23px); }
+    .tagline { font-size: 12.5px; }
+
+    .jam-buka { font-size: 13px; }
+
+    .header-info .btn {
+        width: 100%;                      /* tombol WA melebar penuh, tidak terpotong */
+        text-align: center;
+    }
+
+    .halaman {
+        margin: 16px auto;
+        padding: 0 14px;
+        gap: 16px;
+    }
+
+    .kartu {
+        padding: 18px 14px;
+        border-radius: 12px;
+        margin-bottom: 16px;
+    }
+
+    .kartu h2 { font-size: clamp(17px, 5vw, 21px); }
+    .kartu p  { font-size: 15px; }         /* body text tidak pernah terlalu kecil */
+    .kartu h3 { font-size: 15.5px; }
+
+    .sidebar { gap: 16px; }
+
+    /* Info Cepat: label di atas, nilai di bawah
+       → nomor WA & email tidak pernah pecah per huruf */
+    .info-baris {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+        font-size: 14.5px;
+        padding: 10px 2px;
+    }
+
+    .info-baris dt {
+        font-size: 12.5px;
+        color: var(--text-soft);
+    }
+
+    .info-baris dd {
+        text-align: left;
+        overflow-wrap: break-word;
+        word-break: normal;
+    }
+
+    .daftar-kategori a { font-size: 14.5px; }
+
+    .btn {
+        padding: 12px 18px;
+        font-size: 14px;
+    }
+
+    .btn-kecil { padding: 10px 14px; }
+
+    .nav-link { padding: 13px 18px; font-size: 14.5px; }
+
+    table { font-size: 13px; }
+    th, td { padding: 9px 10px; }
+    th { font-size: 12.5px; white-space: normal; }  /* header tabel boleh turun baris */
+
+    .tombol-ke-atas {
+        right: 16px;
+        bottom: 16px;
+        width: 44px;
+        height: 44px;
+    }
+
+    .footer-inner { gap: 22px; padding: 26px 14px 14px; }
+    .copyright { padding: 12px 14px; }
+}

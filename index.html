@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Website resmi Restoran Sederhana - daftar menu, promo mingguan, menu favorit, dan cara pemesanan.">
+    <meta name="theme-color" content="#ff5722">
+    <title>Restoran Sederhana - Daftar Menu, Promo & Cara Pemesanan</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<!-- Link aksesibilitas: muncul saat di-tab, memudahkan pengguna keyboard -->
+<a class="skip-link" href="#konten-utama">Langsung ke konten utama</a>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header" id="atas">
+    <div class="header-inner">
+        <div class="logo">
+            <span class="logo-icon" aria-hidden="true">🍽️</span>
+            <div class="logo-teks">
+                <h1>Restoran Sederhana</h1>
+                <p class="tagline">Lezat, Terjangkau, dan Mengenyangkan Sejak 2024</p>
+            </div>
+        </div>
+
+        <div class="header-info">
+            <p class="jam-buka"><span class="titik-buka" aria-hidden="true"></span> Buka Setiap Hari 10.00 – 22.00 WIB</p>
+            <a class="btn btn-whatsapp js-whatsapp" href="https://wa.me/6281234567890?text=Halo%20Restoran%20Sederhana!%20Saya%20mau%20pesan%20makanan."
+               data-pesan="Halo Restoran Sederhana! Saya mau pesan makanan." target="_blank" rel="noopener">📱 Pesan via WhatsApp</a>
+        </div>
+    </div>
+</header>
+
+<!-- ===================== NAVIGASI ===================== -->
+<nav class="navbar" id="navbar" aria-label="Navigasi utama">
+    <div class="nav-inner">
+        <span class="nav-merek" aria-hidden="true">Menu</span>
+
+        <button class="hamburger" id="hamburger" type="button"
+                aria-label="Buka atau tutup menu navigasi" aria-expanded="false" aria-controls="nav-menu">
+            <span class="garis"></span>
+            <span class="garis"></span>
+            <span class="garis"></span>
+        </button>
+
+        <ul class="nav-menu" id="nav-menu">
+            <li><a class="nav-link" href="#beranda">Beranda</a></li>
+            <li><a class="nav-link" href="#cara-pemesanan">Cara Pesan</a></li>
+            <li><a class="nav-link" href="#daftar-menu">Daftar Menu</a></li>
+            <li><a class="nav-link" href="#promo">Promo</a></li>
+            <li><a class="nav-link" href="#favorit">Favorit</a></li>
+            <li><a class="nav-link" href="#video">Video</a></li>
+            <li><a class="nav-link" href="#alamat">Alamat</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- ===================== ISI HALAMAN: SIDEBAR + KONTEN UTAMA ===================== -->
+<div class="halaman">
+
+    <!-- Konten utama (di DOM ditaruh dulu agar lebih nyaman dibaca di mobile) -->
+    <main class="konten" id="konten-utama">
+
+        <!-- ============ BERANDA ============ -->
+        <section class="kartu reveal" id="beranda">
+            <h2>Selamat Datang di Restoran Sederhana!</h2>
+            <p>
+                Terima kasih telah mengunjungi website resmi <b>Restoran Sederhana</b>.
+                Kami menyediakan berbagai pilihan makanan, minuman, dan dessert yang lezat
+                dengan harga terjangkau, cocok untuk keluarga, teman, maupun makan sendiri.
+            </p>
+            <p>
+                👉 Bingung mau pesan apa? Cek <a href="#promo">Promo Minggu Ini</a> dulu,
+                lalu lihat <a href="#favorit">5 Menu Favorit Pelanggan</a>!
+            </p>
+
+            <div class="keunggulan">
+                <article class="keunggulan-item">
+                    <span class="keunggulan-ikon" aria-hidden="true">🍳</span>
+                    <h3>Masak Segar Setiap Hari</h3>
+                    <p>Bahan pilihan dimasak saat dipesan, tanpa pengawet.</p>
+                </article>
+                <article class="keunggulan-item">
+                    <span class="keunggulan-ikon" aria-hidden="true">💰</span>
+                    <h3>Harga Ramah Kantong</h3>
+                    <p>Menu lengkap mulai Rp4.000, pas untuk pelajar dan keluarga.</p>
+                </article>
+                <article class="keunggulan-item">
+                    <span class="keunggulan-ikon" aria-hidden="true">⚡</span>
+                    <h3>Cepat & Praktis</h3>
+                    <p>Pesanan siap 10–15 menit, bisa diantar ke meja Anda.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ============ CARA PEMESANAN (TABEL) ============ -->
+        <section class="kartu reveal" id="cara-pemesanan">
+            <h2>📋 Cara Pemesanan Makanan</h2>
+            <div class="table-wrap">
+                <table class="langkah-tabel">
+                    <caption>Tabel 1. Tahapan pemesanan makanan di Restoran Sederhana</caption>
+                    <tr>
+                        <th>No</th>
+                        <th>Tahap</th>
+                        <th>Penjelasan</th>
+                    </tr>
+                    <tr>
+                        <td class="no">1</td>
+                        <td class="tahap">Lihat Daftar Menu</td>
+                        <td>Buka <a href="#daftar-menu">kategori menu</a> lalu pilih makanan, minuman, atau dessert yang Anda inginkan.</td>
+                    </tr>
+                    <tr>
+                        <td class="no">2</td>
+                        <td class="tahap">Catat Pesanan</td>
+                        <td>Tulis nama menu dan jumlahnya. Contoh: Nasi Goreng 2 porsi, Es Teh 2 gelas.</td>
+                    </tr>
+                    <tr>
+                        <td class="no">3</td>
+                        <td class="tahap">Hubungi Pelayan / Kasir</td>
+                        <td>Sampaikan pesanan di meja atau ke kasir. Bisa juga via <a href="https://wa.me/6281234567890?text=Halo%20Restoran%20Sederhana!%20Saya%20mau%20pesan%20makanan." target="_blank" rel="noopener">WhatsApp 0812-3456-7890</a>.</td>
+                    </tr>
+                    <tr>
+                        <td class="no">4</td>
+                        <td class="tahap">Konfirmasi & Pembayaran</td>
+                        <td>Pesanan akan diulang untuk konfirmasi, lalu bayar tunai, QRIS, atau transfer.</td>
+                    </tr>
+                    <tr>
+                        <td class="no">5</td>
+                        <td class="tahap">Tunggu & Nikmati</td>
+                        <td>Pesanan disiapkan 10–15 menit dan diantar hangat ke meja Anda.</td>
+                    </tr>
+                    <tr>
+                        <td class="no">6</td>
+                        <td class="tahap">Beri Ulasan (Opsional)</td>
+                        <td>Puas dengan layanan kami? Tulis <a href="https://maps.google.com/?q=Restoran+Sederhana+Margonda+Depok" target="_blank" rel="noopener">ulasan di Google Maps</a>!</td>
+                    </tr>
+                </table>
+            </div>
+            <p class="catatan-kecil"><i>Tips: jam ramai pukul 12.00–13.00 dan 18.00–20.00, disarankan pesan 10 menit lebih awal.</i></p>
+            <p class="baris-tombol">
+                <a class="btn btn-whatsapp js-whatsapp" href="https://wa.me/6281234567890?text=Halo%20Restoran%20Sederhana!%20Saya%20mau%20pesan%20makanan."
+                   data-pesan="Halo Restoran Sederhana! Saya mau pesan makanan." target="_blank" rel="noopener">📱 Pesan via WhatsApp</a>
+                <a class="btn btn-utama" href="#daftar-menu">Lihat Menu ↓</a>
+            </p>
+        </section>
+
+        <!-- ============ FORM PEMESANAN  ============ -->
+        <section class="kartu reveal" id="form-pemesanan">
+            <h2>📝 Form Pemesanan Cepat</h2>
+            <p>Isi formulir di bawah, pesanan Anda akan tersusun rapi lalu dikirim melalui WhatsApp.</p>
+
+            <form id="form-pesan" class="form-pesan" novalidate>
+                <div class="form-grup">
+                    <label for="nama">Nama Lengkap <span class="wajib">*</span></label>
+                    <input type="text" id="nama" name="nama" placeholder="Contoh: Budi Santoso" autocomplete="name">
+                    <small class="pesan-error" id="error-nama"></small>
+                </div>
+
+                <div class="form-grup">
+                    <label for="telepon">No. WhatsApp <span class="wajib">*</span></label>
+                    <input type="tel" id="telepon" name="telepon" placeholder="Contoh: 0812-3456-7890" autocomplete="tel">
+                    <small class="pesan-error" id="error-telepon"></small>
+                </div>
+
+                <div class="form-grup">
+                    <label for="menu">Menu yang Dipesan <span class="wajib">*</span></label>
+                    <select id="menu" name="menu">
+                        <option value="">-- Pilih Menu --</option>
+                        <optgroup label="Makanan Utama">
+                            <option>Nasi Goreng Spesial</option>
+                            <option>Ayam Geprek Sambal Bawang</option>
+                            <option>Ayam Bakar Madu</option>
+                            <option>Nasi Ayam Teriyaki</option>
+                        </optgroup>
+                        <optgroup label="Camilan / Appetizer">
+                            <option>Dimsum Ayam (isi 4)</option>
+                            <option>Kentang Goreng Crispy</option>
+                            <option>Tahu Walik Pedas</option>
+                        </optgroup>
+                        <optgroup label="Minuman Segar">
+                            <option>Es Teh Manis</option>
+                            <option>Es Jeruk Peras</option>
+                            <option>Kopi Susu Gula Aren</option>
+                            <option>Air Mineral</option>
+                        </optgroup>
+                        <optgroup label="Dessert">
+                            <option>Es Krim Vanilla Cokelat</option>
+                            <option>Puding Karamel</option>
+                            <option>Pisang Cokelat Keju</option>
+                        </optgroup>
+                    </select>
+                    <small class="pesan-error" id="error-menu"></small>
+                </div>
+
+                <div class="form-grup">
+                    <label for="jumlah">Jumlah Pesanan <span class="wajib">*</span></label>
+                    <input type="number" id="jumlah" name="jumlah" min="1" max="20" placeholder="Contoh: 2">
+                    <small class="pesan-error" id="error-jumlah"></small>
+                </div>
+
+                <div class="form-grup form-grup-penuh">
+                    <label for="catatan">Catatan Tambahan (opsional)</label>
+                    <textarea id="catatan" name="catatan" rows="3" placeholder="Contoh: sambal dipisah, tidak pedas, dll."></textarea>
+                </div>
+
+                <div class="form-grup form-grup-penuh">
+                    <button class="btn btn-whatsapp" type="submit">📱 Kirim Pesanan via WhatsApp</button>
+                    <p class="form-sukses" id="form-sukses" role="status"></p>
+                </div>
+            </form>
+        </section>
+
+        <!-- ============ DAFTAR MENU (TABEL) ============ -->
+        <section class="kartu reveal" id="daftar-menu">
+            <h2>🍴 Daftar Menu Lengkap Berdasarkan Kategori</h2>
+            <div class="table-wrap">
+                <table class="menu-tabel">
+                    <caption>Tabel 2. Daftar menu Restoran Sederhana per kategori</caption>
+                    <tr>
+                        <th>Kategori</th>
+                        <th>Menu</th>
+                        <th>Deskripsi</th>
+                        <th>Harga</th>
+                    </tr>
+                    <tr id="menu-makanan">
+                        <td class="kategori" rowspan="4">Makanan Utama</td>
+                        <td>Nasi Goreng Spesial</td>
+                        <td>Nasi goreng dengan telur, ayam, dan acar segar</td>
+                        <td class="harga">Rp18.000 / $1.20</td>
+                    </tr>
+                    <tr>
+                        <td>Ayam Geprek Sambal Bawang</td>
+                        <td>Ayam crispy dengan sambal bawang, level 1–5</td>
+                        <td class="harga">Rp20.000 / $1.35</td>
+                    </tr>
+                    <tr>
+                        <td>Ayam Bakar Madu</td>
+                        <td>Ayam bakar bumbu madu, nasi hangat, dan lalapan</td>
+                        <td class="harga">Rp22.000 / $1.50</td>
+                    </tr>
+                    <tr>
+                        <td>Nasi Ayam Teriyaki</td>
+                        <td>Ayam saus teriyaki dengan nasi dan sayuran</td>
+                        <td class="harga">Rp21.000 / $1.40</td>
+                    </tr>
+                    <tr id="menu-camilan">
+                        <td class="kategori" rowspan="3">Camilan / Appetizer</td>
+                        <td>Dimsum Ayam (isi 4)</td>
+                        <td>Dimsum kukus dengan saus mentai gurih</td>
+                        <td class="harga">Rp15.000 / $1.00</td>
+                    </tr>
+                    <tr>
+                        <td>Kentang Goreng Crispy</td>
+                        <td>Kentang goreng renyah dengan saus sambal</td>
+                        <td class="harga">Rp12.000 / $0.80</td>
+                    </tr>
+                    <tr>
+                        <td>Tahu Walik Pedas</td>
+                        <td>Tahu goreng isi sayur dengan sambal pedas</td>
+                        <td class="harga">Rp10.000 / $0.70</td>
+                    </tr>
+                    <tr id="menu-minuman">
+                        <td class="kategori" rowspan="4">Minuman Segar</td>
+                        <td>Es Teh Manis</td>
+                        <td>Teh hitam manis dingin, segar khas restoran</td>
+                        <td class="harga">Rp5.000 / $0.35</td>
+                    </tr>
+                    <tr>
+                        <td>Es Jeruk Peras</td>
+                        <td>Jeruk peras asli tanpa pengawet</td>
+                        <td class="harga">Rp8.000 / $0.55</td>
+                    </tr>
+                    <tr>
+                        <td>Kopi Susu Gula Aren</td>
+                        <td>Kopi arabika dengan susu dan gula aren asli</td>
+                        <td class="harga">Rp12.000 / $0.80</td>
+                    </tr>
+                    <tr>
+                        <td>Air Mineral</td>
+                        <td>Botol air mineral dingin 600 ml</td>
+                        <td class="harga">Rp4.000 / $0.30</td>
+                    </tr>
+                    <tr id="menu-dessert">
+                        <td class="kategori" rowspan="3">Dessert</td>
+                        <td>Es Krim Vanilla Cokelat</td>
+                        <td>Es krim vanilla dengan topping cokelat leleh</td>
+                        <td class="harga">Rp10.000 / $0.70</td>
+                    </tr>
+                    <tr>
+                        <td>Puding Karamel</td>
+                        <td>Puding lembut dengan saus karamel manis</td>
+                        <td class="harga">Rp8.000 / $0.55</td>
+                    </tr>
+                    <tr>
+                        <td>Pisang Cokelat Keju</td>
+                        <td>Pisang kukus, topping cokelat dan keju parut</td>
+                        <td class="harga">Rp13.000 / $0.90</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- ============ PROMO ============ -->
+        <section class="kartu reveal" id="promo">
+            <h2>🔥 Promo Minggu Ini</h2>
+
+            <h3>🎁 Paket Hemat (Combo)</h3>
+            <div class="table-wrap">
+                <table class="promo-paket">
+                    <caption>Tabel 3. Paket promo combo harga spesial</caption>
+                    <tr>
+                        <th>Paket</th>
+                        <th>Isi Paket</th>
+                        <th>Harga Normal</th>
+                        <th>Harga Promo</th>
+                        <th>Hemat</th>
+                    </tr>
+                    <tr>
+                        <td class="nama">Paket Hemat A</td>
+                        <td>Nasi Goreng Spesial + Es Teh Manis</td>
+                        <td class="coret">Rp23.000</td>
+                        <td class="promo">Rp20.000</td>
+                        <td class="hemat">Rp3.000</td>
+                    </tr>
+                    <tr>
+                        <td class="nama">Paket Hemat B</td>
+                        <td>Ayam Geprek Sambal Bawang + Es Teh Manis</td>
+                        <td class="coret">Rp25.000</td>
+                        <td class="promo">Rp22.000</td>
+                        <td class="hemat">Rp3.000</td>
+                    </tr>
+                    <tr>
+                        <td class="nama">Paket Nongkrong</td>
+                        <td>Kentang Goreng Crispy + Tahu Walik Pedas + 2 Kopi Susu Gula Aren</td>
+                        <td class="coret">Rp39.000</td>
+                        <td class="promo">Rp35.000</td>
+                        <td class="hemat">Rp4.000</td>
+                    </tr>
+                    <tr>
+                        <td class="nama">Paket Keluarga</td>
+                        <td>2 Ayam Bakar Madu + 2 Nasi Goreng Spesial + 2 Es Teh Manis + 1 Dimsum Ayam</td>
+                        <td class="coret">Rp88.000</td>
+                        <td class="promo">Rp79.000</td>
+                        <td class="hemat">Rp9.000</td>
+                    </tr>
+                    <tr>
+                        <td class="catatan" colspan="5">* Harga promo berlaku hingga 31 Oktober 2026, tidak dapat digabung dengan promo lainnya.</td>
+                    </tr>
+                </table>
+            </div>
+            <p class="baris-tombol">
+                <a class="btn btn-promo js-whatsapp" href="https://wa.me/6281234567890?text=Halo!%20Saya%20mau%20pesan%20Paket%20Promo%20di%20Restoran%20Sederhana."
+                   data-pesan="Halo! Saya mau pesan Paket Promo di Restoran Sederhana." target="_blank" rel="noopener">🎉 Pesan Paket Promo</a>
+            </p>
+
+            <h3>📅 Promo Spesial Harian</h3>
+            <div class="table-wrap">
+                <table class="promo-harian">
+                    <caption>Tabel 4. Promo diskon dan bonus setiap hari</caption>
+                    <tr>
+                        <th>Hari</th>
+                        <th>Menu Promo</th>
+                        <th>Diskon / Bonus</th>
+                    </tr>
+                    <tr>
+                        <td class="hari">Senin</td>
+                        <td>Ayam Geprek Sambal Bawang</td>
+                        <td class="diskon">Diskon 20%</td>
+                    </tr>
+                    <tr>
+                        <td class="hari">Selasa</td>
+                        <td>Dimsum Ayam</td>
+                        <td class="diskon">Beli 3 Gratis 1</td>
+                    </tr>
+                    <tr>
+                        <td class="hari">Rabu</td>
+                        <td>Es Jeruk Peras</td>
+                        <td class="diskon">Beli 1 Gratis 1</td>
+                    </tr>
+                    <tr>
+                        <td class="hari">Kamis</td>
+                        <td>Nasi Goreng Spesial + Es Teh</td>
+                        <td class="diskon">Hemat Rp3.000</td>
+                    </tr>
+                    <tr>
+                        <td class="hari">Jumat</td>
+                        <td>Kopi Susu Gula Aren</td>
+                        <td class="diskon">Diskon 25%</td>
+                    </tr>
+                    <tr>
+                        <td class="hari">Sabtu</td>
+                        <td>Pembelian minimal Rp50.000</td>
+                        <td class="diskon">Gratis Dessert</td>
+                    </tr>
+                    <tr>
+                        <td class="hari">Minggu</td>
+                        <td>Paket Keluarga</td>
+                        <td class="diskon">Hemat Rp9.000</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- ============ MENU FAVORIT (KARTU) ============ -->
+        <section class="kartu reveal" id="favorit">
+            <h2>⭐ Menu Favorit Pelanggan</h2>
+            <p>Berikut 5 menu best-seller minggu ini yang paling sering dipesan:</p>
+
+            <div class="favorit-grid">
+                <article class="kartu-menu">
+                    <div class="kartu-menu-gambar">
+                        <img loading="lazy" decoding="async" src="gambar/dimsum.png" alt="Dimsum" width="200" height="150">
+                    </div>
+                    <div class="kartu-menu-isi">
+                        <h3>Dimsum</h3>
+                        <p>Dimsum lezat dan cocok untuk camilan.</p>
+                        <p class="harga-menu">Harga: Rp15.000 / $1</p>
+                        <a class="btn btn-kecil btn-whatsapp js-whatsapp"
+                           href="https://wa.me/6281234567890?text=Halo!%20Saya%20mau%20pesan%20Dimsum%20Ayam%201%20porsi."
+                           data-pesan="Halo! Saya mau pesan Dimsum Ayam 1 porsi." target="_blank" rel="noopener">Pesan Dimsum →</a>
+                    </div>
+                </article>
+
+                <article class="kartu-menu">
+                    <div class="kartu-menu-gambar">
+                        <img loading="lazy" decoding="async" src="gambar/nasigoreng.png" alt="Nasi Goreng" width="200" height="150">
+                    </div>
+                    <div class="kartu-menu-isi">
+                        <h3>Nasi Goreng</h3>
+                        <p>Nasi goreng dengan rasa gurih dan nikmat.</p>
+                        <p class="harga-menu">Harga: Rp18.000 / $1.20</p>
+                        <a class="btn btn-kecil btn-whatsapp js-whatsapp"
+                           href="https://wa.me/6281234567890?text=Halo!%20Saya%20mau%20pesan%20Nasi%20Goreng%20Spesial%201%20porsi."
+                           data-pesan="Halo! Saya mau pesan Nasi Goreng Spesial 1 porsi." target="_blank" rel="noopener">Pesan Nasi Goreng →</a>
+                    </div>
+                </article>
+
+                <article class="kartu-menu">
+                    <div class="kartu-menu-gambar">
+                        <img loading="lazy" decoding="async" src="gambar/ayamgeprek.webp" alt="Ayam Geprek" width="200" height="150">
+                    </div>
+                    <div class="kartu-menu-isi">
+                        <h3>Ayam Geprek</h3>
+                        <p>Ayam crispy dengan sambal yang menggugah selera.</p>
+                        <p class="harga-menu">Harga: Rp20.000 / $1.35</p>
+                        <a class="btn btn-kecil btn-whatsapp js-whatsapp"
+                           href="https://wa.me/6281234567890?text=Halo!%20Saya%20mau%20pesan%20Ayam%20Geprek%201%20porsi."
+                           data-pesan="Halo! Saya mau pesan Ayam Geprek 1 porsi." target="_blank" rel="noopener">Pesan Ayam Geprek →</a>
+                    </div>
+                </article>
+
+                <article class="kartu-menu">
+                    <div class="kartu-menu-gambar">
+                        <img loading="lazy" decoding="async" src="gambar/ayambakar.png" alt="Ayam Bakar" width="200" height="150">
+                    </div>
+                    <div class="kartu-menu-isi">
+                        <h3>Ayam Bakar</h3>
+                        <p>Ayam bakar dengan bumbu khas restoran.</p>
+                        <p class="harga-menu">Harga: Rp22.000 / $1.50</p>
+                        <a class="btn btn-kecil btn-whatsapp js-whatsapp"
+                           href="https://wa.me/6281234567890?text=Halo!%20Saya%20mau%20pesan%20Ayam%20Bakar%20Madu%201%20porsi."
+                           data-pesan="Halo! Saya mau pesan Ayam Bakar Madu 1 porsi." target="_blank" rel="noopener">Pesan Ayam Bakar →</a>
+                    </div>
+                </article>
+
+                <article class="kartu-menu">
+                    <div class="kartu-menu-gambar">
+                        <img loading="lazy" decoding="async" src="gambar/esteh.png" alt="Es Teh" width="200" height="150">
+                    </div>
+                    <div class="kartu-menu-isi">
+                        <h3>Es Teh</h3>
+                        <p>Minuman segar untuk menemani makanan Anda.</p>
+                        <p class="harga-menu">Harga: Rp5.000 / $0.35</p>
+                        <a class="btn btn-kecil btn-whatsapp js-whatsapp"
+                           href="https://wa.me/6281234567890?text=Halo!%20Saya%20mau%20pesan%20Es%20Teh%20Manis%201%20gelas."
+                           data-pesan="Halo! Saya mau pesan Es Teh Manis 1 gelas." target="_blank" rel="noopener">Pesan Es Teh →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ============ VIDEO ============ -->
+        <section class="kartu reveal" id="video">
+            <h2>🎥 Video Promosi Restoran</h2>
+            <div class="video-grid">
+                <div class="video-bingkai">
+                    <video controls>
+                        <source src="video/promosi.mp4" type="video/mp4">
+                        Browser Anda tidak mendukung pemutaran video.
+                    </video>
+                </div>
+                <div class="video-teks">
+                    <p>
+                        <b>Kenalan lebih dekat dengan kami!</b> Tonton video promosi
+                        Restoran Sederhana: suasana makan bersama yang hangat,
+                        pas untuk keluarga dan teman.
+                    </p>
+                    <p>
+                        Tertarik? Langsung <a href="#promo">cek promo minggu ini</a>
+                        atau <a class="js-whatsapp" href="https://wa.me/6281234567890?text=Halo%20Restoran%20Sederhana!%20Saya%20mau%20pesan%20makanan."
+                        data-pesan="Halo Restoran Sederhana! Saya mau pesan makanan." target="_blank" rel="noopener">pesan via WhatsApp</a>.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ ALAMAT / KONTAK ============ -->
+        <section class="kartu reveal" id="alamat">
+            <h2>📍 Alamat Restoran</h2>
+            <div class="table-wrap">
+                <table class="alamat-tabel">
+                    <tr>
+                        <td class="label">Nama</td>
+                        <td><b>Restoran Sederhana</b></td>
+                    </tr>
+                    <tr>
+                        <td class="label">Alamat</td>
+                        <td>Jl. Raya Margonda No. 25, Depok, Jawa Barat</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Jam Buka</td>
+                        <td>Buka Setiap Hari: 10.00 – 22.00 WIB</td>
+                    </tr>
+                    <tr>
+                        <td class="label">WhatsApp</td>
+                        <td><a href="https://wa.me/6281234567890" target="_blank" rel="noopener">0812-3456-7890</a></td>
+                    </tr>
+                    <tr>
+                        <td class="label">Telepon</td>
+                        <td><a href="tel:+62217890123">(021) 789-0123</a></td>
+                    </tr>
+                    <tr>
+                        <td class="label">Email</td>
+                        <td><a href="mailto:halo@restoransederhana.id">halo@restoransederhana.id</a></td>
+                    </tr>
+                </table>
+            </div>
+
+            <p class="baris-tombol">
+                <a class="btn btn-outline js-whatsapp"
+                   href="https://wa.me/6281234567890?text=Halo%20Restoran%20Sederhana!%20Saya%20mau%20pesan%20makanan."
+                   data-pesan="Halo Restoran Sederhana! Saya mau pesan makanan." target="_blank" rel="noopener">📱 Pesan via WhatsApp</a>
+                <a class="btn btn-outline" href="https://maps.google.com/?q=Restoran+Sederhana+Margonda+Depok" target="_blank" rel="noopener">🗺️ Lihat di Google Maps</a>
+                <a class="btn btn-outline kembali-atas" href="#atas">⬆️ Kembali ke atas</a>
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Sidebar "Info Cepat" -->
+    <aside class="sidebar">
+        <section class="kartu kartu-sidebar reveal">
+            <h2 class="judul-sidebar">ℹ️ Info Cepat</h2>
+            <dl class="info-tabel">
+                <div class="info-baris">
+                    <dt>Jam Buka</dt>
+                    <dd>10.00 – 22.00 WIB</dd>
+                </div>
+                <div class="info-baris">
+                    <dt>Telepon</dt>
+                    <dd><a href="tel:+62217890123">(021) 789-0123</a></dd>
+                </div>
+                <div class="info-baris">
+                    <dt>WhatsApp</dt>
+                    <dd><a href="https://wa.me/6281234567890" target="_blank" rel="noopener">0812-3456-7890</a></dd>
+                </div>
+                <div class="info-baris">
+                    <dt>Email</dt>
+                    <dd><a href="mailto:halo@restoransederhana.id">halo@restoransederhana.id</a></dd>
+                </div>
+            </dl>
+        </section>
+
+        <section class="kartu kartu-sidebar reveal">
+            <h2 class="judul-sidebar">🍴 Kategori Menu</h2>
+            <ul class="daftar-kategori">
+                <li><a href="#menu-makanan">Makanan Utama</a></li>
+                <li><a href="#menu-camilan">Camilan / Appetizer</a></li>
+                <li><a href="#menu-minuman">Minuman Segar</a></li>
+                <li><a href="#menu-dessert">Dessert</a></li>
+                <li><a href="#promo">Promo Minggu Ini 🔥</a></li>
+            </ul>
+
+            <a class="btn btn-whatsapp btn-penuh js-whatsapp"
+               href="https://wa.me/6281234567890?text=Halo%20Restoran%20Sederhana!%20Saya%20mau%20pesan%20makanan."
+               data-pesan="Halo Restoran Sederhana! Saya mau pesan makanan." target="_blank" rel="noopener">📱 Pesan via WhatsApp</a>
+        </section>
+    </aside>
+
+</div>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-kolom">
+            <h2 class="footer-judul">🍽️ Restoran Sederhana</h2>
+            <p>Lezat, Terjangkau, dan Mengenyangkan Sejak 2024</p>
+        </div>
+
+        <nav class="footer-kolom" aria-label="Navigasi footer">
+            <h2 class="footer-judul">Menu Cepat</h2>
+            <ul class="footer-tautan">
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#cara-pemesanan">Cara Pesan</a></li>
+                <li><a href="#daftar-menu">Menu</a></li>
+                <li><a href="#promo">Promo</a></li>
+                <li><a href="#alamat">Kontak</a></li>
+            </ul>
+        </nav>
+
+        <div class="footer-kolom">
+            <h2 class="footer-judul">Hubungi Kami</h2>
+            <ul class="footer-tautan">
+                <li>Jl. Raya Margonda No. 25, Depok, Jawa Barat</li>
+                <li><a href="tel:+62217890123">(021) 789-0123</a></li>
+                <li><a href="https://wa.me/6281234567890" target="_blank" rel="noopener">0812-3456-7890</a></li>
+                <li><a href="mailto:halo@restoransederhana.id">halo@restoransederhana.id</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <p class="copyright">© 2026 <b>Restoran Sederhana</b>. Semua Hak Dilindungi.</p>
+</footer>
+
+<!-- Tombol kembali ke atas (muncul dengan JavaScript) -->
+<button class="tombol-ke-atas" id="tombol-ke-atas" type="button" aria-label="Kembali ke atas halaman">⬆</button>
+
+</body>
+</html>
