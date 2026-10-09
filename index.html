@@ -6,6 +6,7 @@
     <meta name="description" content="Website resmi Restoran Sederhana - daftar menu, promo mingguan, menu favorit, dan cara pemesanan.">
     <meta name="theme-color" content="#ff5722">
     <title>Restoran Sederhana - Daftar Menu, Promo & Cara Pemesanan</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23d14316'/><text x='50' y='68' font-size='52' text-anchor='middle'>🍽️</text></svg>">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,8 +34,7 @@
 
         <div class="header-info">
             <p class="jam-buka"><span class="titik-buka" aria-hidden="true"></span> Buka Setiap Hari 10.00 – 22.00 WIB</p>
-            <a class="btn btn-whatsapp js-whatsapp" href="https://wa.me/6281234567890?text=Halo%20Restoran%20Sederhana!%20Saya%20mau%20pesan%20makanan."
-               data-pesan="Halo Restoran Sederhana! Saya mau pesan makanan." target="_blank" rel="noopener">📱 Pesan via WhatsApp</a>
+            <a class="btn btn-utama" href="#form-pemesanan">🛒 Pesan Sekarang</a>
         </div>
     </div>
 </header>
@@ -54,6 +54,7 @@
         <ul class="nav-menu" id="nav-menu">
             <li><a class="nav-link" href="#beranda">Beranda</a></li>
             <li><a class="nav-link" href="#cara-pemesanan">Cara Pesan</a></li>
+            <li><a class="nav-link" href="#form-pemesanan">Form Pesan</a></li>
             <li><a class="nav-link" href="#daftar-menu">Daftar Menu</a></li>
             <li><a class="nav-link" href="#promo">Promo</a></li>
             <li><a class="nav-link" href="#favorit">Favorit</a></li>
@@ -67,10 +68,10 @@
 <div class="halaman">
 
     <!-- Konten utama (di DOM ditaruh dulu agar lebih nyaman dibaca di mobile) -->
-    <main class="konten" id="konten-utama">
+    <main class="konten" id="konten-utama" tabindex="-1">
 
         <!-- ============ BERANDA ============ -->
-        <section class="kartu reveal" id="beranda">
+        <section class="kartu reveal" id="beranda" tabindex="-1">
             <h2>Selamat Datang di Restoran Sederhana!</h2>
             <p>
                 Terima kasih telah mengunjungi website resmi <b>Restoran Sederhana</b>.
@@ -102,397 +103,666 @@
         </section>
 
         <!-- ============ CARA PEMESANAN (TABEL) ============ -->
-        <section class="kartu reveal" id="cara-pemesanan">
+        <section class="kartu reveal" id="cara-pemesanan" tabindex="-1">
             <h2>📋 Cara Pemesanan Makanan</h2>
             <div class="table-wrap">
-                <table class="langkah-tabel">
+                <table role="table" class="langkah-tabel tabel-stack">
                     <caption>Tabel 1. Tahapan pemesanan makanan di Restoran Sederhana</caption>
-                    <tr>
-                        <th>No</th>
-                        <th>Tahap</th>
-                        <th>Penjelasan</th>
+                    <thead role="rowgroup">
+                        <tr role="row">
+                            <th role="columnheader" scope="col">No</th>
+                            <th role="columnheader" scope="col">Tahap</th>
+                            <th role="columnheader" scope="col">Penjelasan</th>
+                        </tr>
+                    </thead>
+                    <tbody role="rowgroup">
+                    <tr role="row">
+                        <td class="no" role="cell" data-label="No">1</td>
+                        <td class="tahap" role="cell" data-label="Tahap">Lihat Daftar Menu</td>
+                        <td role="cell" data-label="Penjelasan">Buka <a href="#daftar-menu">kategori menu</a> lalu pilih makanan, minuman, atau dessert yang Anda inginkan.</td>
                     </tr>
-                    <tr>
-                        <td class="no">1</td>
-                        <td class="tahap">Lihat Daftar Menu</td>
-                        <td>Buka <a href="#daftar-menu">kategori menu</a> lalu pilih makanan, minuman, atau dessert yang Anda inginkan.</td>
+                    <tr role="row">
+                        <td class="no" role="cell" data-label="No">2</td>
+                        <td class="tahap" role="cell" data-label="Tahap">Catat Pesanan</td>
+                        <td role="cell" data-label="Penjelasan">Tulis nama menu dan jumlahnya. Contoh: Nasi Goreng 2 porsi, Es Teh 2 gelas.</td>
                     </tr>
-                    <tr>
-                        <td class="no">2</td>
-                        <td class="tahap">Catat Pesanan</td>
-                        <td>Tulis nama menu dan jumlahnya. Contoh: Nasi Goreng 2 porsi, Es Teh 2 gelas.</td>
+                    <tr role="row">
+                        <td class="no" role="cell" data-label="No">3</td>
+                        <td class="tahap" role="cell" data-label="Tahap">Isi Form Pemesanan</td>
+                        <td role="cell" data-label="Penjelasan">Buka <a href="#form-pemesanan">Form Pemesanan</a>, isi data diri, pilih paket menu, lalu tentukan metode pembayaran.</td>
                     </tr>
-                    <tr>
-                        <td class="no">3</td>
-                        <td class="tahap">Hubungi Pelayan / Kasir</td>
-                        <td>Sampaikan pesanan di meja atau ke kasir. Bisa juga via <a href="https://wa.me/6281234567890?text=Halo%20Restoran%20Sederhana!%20Saya%20mau%20pesan%20makanan." target="_blank" rel="noopener">WhatsApp 0812-3456-7890</a>.</td>
+                    <tr role="row">
+                        <td class="no" role="cell" data-label="No">4</td>
+                        <td class="tahap" role="cell" data-label="Tahap">Kirim &amp; Konfirmasi</td>
+                        <td role="cell" data-label="Penjelasan">Klik tombol <b>Kirim Pemesanan</b>. Pesanan Anda tercatat dan dikonfirmasi lewat No. HP yang Anda isi.</td>
                     </tr>
-                    <tr>
-                        <td class="no">4</td>
-                        <td class="tahap">Konfirmasi & Pembayaran</td>
-                        <td>Pesanan akan diulang untuk konfirmasi, lalu bayar tunai, QRIS, atau transfer.</td>
+                    <tr role="row">
+                        <td class="no" role="cell" data-label="No">5</td>
+                        <td class="tahap" role="cell" data-label="Tahap">Tunggu & Nikmati</td>
+                        <td role="cell" data-label="Penjelasan">Pesanan disiapkan 10–15 menit dan diantar hangat ke meja Anda.</td>
                     </tr>
-                    <tr>
-                        <td class="no">5</td>
-                        <td class="tahap">Tunggu & Nikmati</td>
-                        <td>Pesanan disiapkan 10–15 menit dan diantar hangat ke meja Anda.</td>
+                    <tr role="row">
+                        <td class="no" role="cell" data-label="No">6</td>
+                        <td class="tahap" role="cell" data-label="Tahap">Beri Ulasan (Opsional)</td>
+                        <td role="cell" data-label="Penjelasan">Puas dengan layanan kami? Tulis <a href="https://maps.google.com/?q=Restoran+Sederhana+Margonda+Depok" target="_blank" rel="noopener">ulasan di Google Maps</a>!</td>
                     </tr>
-                    <tr>
-                        <td class="no">6</td>
-                        <td class="tahap">Beri Ulasan (Opsional)</td>
-                        <td>Puas dengan layanan kami? Tulis <a href="https://maps.google.com/?q=Restoran+Sederhana+Margonda+Depok" target="_blank" rel="noopener">ulasan di Google Maps</a>!</td>
-                    </tr>
+                    </tbody>
                 </table>
             </div>
             <p class="catatan-kecil"><i>Tips: jam ramai pukul 12.00–13.00 dan 18.00–20.00, disarankan pesan 10 menit lebih awal.</i></p>
             <p class="baris-tombol">
-                <a class="btn btn-whatsapp js-whatsapp" href="https://wa.me/6281234567890?text=Halo%20Restoran%20Sederhana!%20Saya%20mau%20pesan%20makanan."
-                   data-pesan="Halo Restoran Sederhana! Saya mau pesan makanan." target="_blank" rel="noopener">📱 Pesan via WhatsApp</a>
+                <a class="btn btn-utama" href="#form-pemesanan">🛒 Isi Form Pemesanan</a>
                 <a class="btn btn-utama" href="#daftar-menu">Lihat Menu ↓</a>
             </p>
         </section>
 
-        <!-- ============ FORM PEMESANAN  ============ -->
-        <section class="kartu reveal" id="form-pemesanan">
-            <h2>📝 Form Pemesanan Cepat</h2>
-            <p>Isi formulir di bawah, pesanan Anda akan tersusun rapi lalu dikirim melalui WhatsApp.</p>
+        <!-- ============ FORM PEMESANAN ============ -->
+        <section class="kartu reveal" id="form-pemesanan" tabindex="-1">
+            <h2>📝 Form Pemesanan</h2>
+            <p>Isi data diri, pilih paket menu, tentukan metode pembayaran, lalu klik <b>Kirim Pemesanan</b>. Pesanan Anda akan tercatat di halaman ini.</p>
 
             <form id="form-pesan" class="form-pesan" novalidate>
+
+                <!-- ===== BAGIAN 1: DATA DIRI ===== -->
+                <div class="form-blok">
+                    <h3 class="form-bagian-judul"><span class="langkah-bilangan">1</span> Data Diri</h3>
+                </div>
+
                 <div class="form-grup">
                     <label for="nama">Nama Lengkap <span class="wajib">*</span></label>
-                    <input type="text" id="nama" name="nama" placeholder="Contoh: Budi Santoso" autocomplete="name">
-                    <small class="pesan-error" id="error-nama"></small>
+                    <input type="text" id="nama" name="nama" placeholder="Contoh: Budi Santoso" autocomplete="name" required aria-required="true" aria-describedby="error-nama">
+                    <small class="pesan-error" id="error-nama" aria-live="polite"></small>
                 </div>
 
                 <div class="form-grup">
-                    <label for="telepon">No. WhatsApp <span class="wajib">*</span></label>
-                    <input type="tel" id="telepon" name="telepon" placeholder="Contoh: 0812-3456-7890" autocomplete="tel">
-                    <small class="pesan-error" id="error-telepon"></small>
+                    <label for="telepon">No. HP / WhatsApp <span class="wajib">*</span></label>
+                    <input type="tel" id="telepon" name="telepon" placeholder="Contoh: 0812-3456-7890" autocomplete="tel" inputmode="tel" required aria-required="true" aria-describedby="error-telepon">
+                    <small class="pesan-error" id="error-telepon" aria-live="polite"></small>
                 </div>
 
-                <div class="form-grup">
-                    <label for="menu">Menu yang Dipesan <span class="wajib">*</span></label>
-                    <select id="menu" name="menu">
-                        <option value="">-- Pilih Menu --</option>
-                        <optgroup label="Makanan Utama">
-                            <option>Nasi Goreng Spesial</option>
-                            <option>Ayam Geprek Sambal Bawang</option>
-                            <option>Ayam Bakar Madu</option>
-                            <option>Nasi Ayam Teriyaki</option>
-                        </optgroup>
-                        <optgroup label="Camilan / Appetizer">
-                            <option>Dimsum Ayam (isi 4)</option>
-                            <option>Kentang Goreng Crispy</option>
-                            <option>Tahu Walik Pedas</option>
-                        </optgroup>
-                        <optgroup label="Minuman Segar">
-                            <option>Es Teh Manis</option>
-                            <option>Es Jeruk Peras</option>
-                            <option>Kopi Susu Gula Aren</option>
-                            <option>Air Mineral</option>
-                        </optgroup>
-                        <optgroup label="Dessert">
-                            <option>Es Krim Vanilla Cokelat</option>
-                            <option>Puding Karamel</option>
-                            <option>Pisang Cokelat Keju</option>
-                        </optgroup>
-                    </select>
-                    <small class="pesan-error" id="error-menu"></small>
+                <div class="form-grup form-grup-penuh">
+                    <label for="tanggal">Tanggal Booking <span class="wajib">*</span></label>
+                    <input type="date" id="tanggal" name="tanggal" required aria-required="true" aria-describedby="error-tanggal">
+                    <small class="pesan-error" id="error-tanggal" aria-live="polite"></small>
                 </div>
 
-                <div class="form-grup">
-                    <label for="jumlah">Jumlah Pesanan <span class="wajib">*</span></label>
-                    <input type="number" id="jumlah" name="jumlah" min="1" max="20" placeholder="Contoh: 2">
-                    <small class="pesan-error" id="error-jumlah"></small>
+                <!-- ===== BAGIAN 2: PILIHAN PAKET MENU (CHECKBOX + JUMLAH) ===== -->
+                <div class="form-blok">
+                    <h3 class="form-bagian-judul"><span class="langkah-bilangan">2</span> Pilihan Paket Menu</h3>
+                    <p class="catatan-kecil">Centang menu yang ingin dipesan, lalu isi jumlah item pada kolom di sebelahnya.</p>
+
+                    <!-- Makanan -->
+                    <div class="paket-grup" role="group" aria-labelledby="judul-paket-makanan">
+                        <div class="paket-judul" id="judul-paket-makanan"><span class="paket-ikon" aria-hidden="true">🍔</span> Makanan</div>
+
+                        <div class="paket-item">
+                            <input type="checkbox" class="paket-centang" id="paket-nasgor" name="paket" value="Nasi Goreng Spesial" data-harga="18000" data-jumlah="jumlah-nasgor">
+                            <label class="paket-kotak" for="paket-nasgor" aria-hidden="true"></label>
+                            <label class="paket-nama" for="paket-nasgor">Nasi Goreng Spesial</label>
+                            <span class="paket-harga">Rp18.000</span>
+                            <span class="paket-jumlah">
+                                <label for="jumlah-nasgor">Jumlah</label>
+                                <input type="number" id="jumlah-nasgor" min="1" max="20" value="1" inputmode="numeric">
+                            </span>
+                        </div>
+
+                        <div class="paket-item">
+                            <input type="checkbox" class="paket-centang" id="paket-geprek" name="paket" value="Ayam Geprek Sambal Bawang" data-harga="20000" data-jumlah="jumlah-geprek">
+                            <label class="paket-kotak" for="paket-geprek" aria-hidden="true"></label>
+                            <label class="paket-nama" for="paket-geprek">Ayam Geprek Sambal Bawang</label>
+                            <span class="paket-harga">Rp20.000</span>
+                            <span class="paket-jumlah">
+                                <label for="jumlah-geprek">Jumlah</label>
+                                <input type="number" id="jumlah-geprek" min="1" max="20" value="1" inputmode="numeric">
+                            </span>
+                        </div>
+
+                        <div class="paket-item">
+                            <input type="checkbox" class="paket-centang" id="paket-bakar" name="paket" value="Ayam Bakar Madu" data-harga="22000" data-jumlah="jumlah-bakar">
+                            <label class="paket-kotak" for="paket-bakar" aria-hidden="true"></label>
+                            <label class="paket-nama" for="paket-bakar">Ayam Bakar Madu</label>
+                            <span class="paket-harga">Rp22.000</span>
+                            <span class="paket-jumlah">
+                                <label for="jumlah-bakar">Jumlah</label>
+                                <input type="number" id="jumlah-bakar" min="1" max="20" value="1" inputmode="numeric">
+                            </span>
+                        </div>
+
+                        <div class="paket-item">
+                            <input type="checkbox" class="paket-centang" id="paket-teriyaki" name="paket" value="Nasi Ayam Teriyaki" data-harga="21000" data-jumlah="jumlah-teriyaki">
+                            <label class="paket-kotak" for="paket-teriyaki" aria-hidden="true"></label>
+                            <label class="paket-nama" for="paket-teriyaki">Nasi Ayam Teriyaki</label>
+                            <span class="paket-harga">Rp21.000</span>
+                            <span class="paket-jumlah">
+                                <label for="jumlah-teriyaki">Jumlah</label>
+                                <input type="number" id="jumlah-teriyaki" min="1" max="20" value="1" inputmode="numeric">
+                            </span>
+                        </div>
+
+                        <div class="paket-item">
+                            <input type="checkbox" class="paket-centang" id="paket-dimsum" name="paket" value="Dimsum Ayam (isi 4)" data-harga="15000" data-jumlah="jumlah-dimsum">
+                            <label class="paket-kotak" for="paket-dimsum" aria-hidden="true"></label>
+                            <label class="paket-nama" for="paket-dimsum">Dimsum Ayam (isi 4)</label>
+                            <span class="paket-harga">Rp15.000</span>
+                            <span class="paket-jumlah">
+                                <label for="jumlah-dimsum">Jumlah</label>
+                                <input type="number" id="jumlah-dimsum" min="1" max="20" value="1" inputmode="numeric">
+                            </span>
+                        </div>
+
+                        <div class="paket-item">
+                            <input type="checkbox" class="paket-centang" id="paket-kentang" name="paket" value="Kentang Goreng Crispy" data-harga="12000" data-jumlah="jumlah-kentang">
+                            <label class="paket-kotak" for="paket-kentang" aria-hidden="true"></label>
+                            <label class="paket-nama" for="paket-kentang">Kentang Goreng Crispy</label>
+                            <span class="paket-harga">Rp12.000</span>
+                            <span class="paket-jumlah">
+                                <label for="jumlah-kentang">Jumlah</label>
+                                <input type="number" id="jumlah-kentang" min="1" max="20" value="1" inputmode="numeric">
+                            </span>
+                        </div>
+
+                        <div class="paket-item">
+                            <input type="checkbox" class="paket-centang" id="paket-tahu" name="paket" value="Tahu Walik Pedas" data-harga="10000" data-jumlah="jumlah-tahu">
+                            <label class="paket-kotak" for="paket-tahu" aria-hidden="true"></label>
+                            <label class="paket-nama" for="paket-tahu">Tahu Walik Pedas</label>
+                            <span class="paket-harga">Rp10.000</span>
+                            <span class="paket-jumlah">
+                                <label for="jumlah-tahu">Jumlah</label>
+                                <input type="number" id="jumlah-tahu" min="1" max="20" value="1" inputmode="numeric">
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Minuman -->
+                    <div class="paket-grup" role="group" aria-labelledby="judul-paket-minuman">
+                        <div class="paket-judul" id="judul-paket-minuman"><span class="paket-ikon" aria-hidden="true">🥤</span> Minuman</div>
+
+                        <div class="paket-item">
+                            <input type="checkbox" class="paket-centang" id="paket-esteh" name="paket" value="Es Teh Manis" data-harga="5000" data-jumlah="jumlah-esteh">
+                            <label class="paket-kotak" for="paket-esteh" aria-hidden="true"></label>
+                            <label class="paket-nama" for="paket-esteh">Es Teh Manis</label>
+                            <span class="paket-harga">Rp5.000</span>
+                            <span class="paket-jumlah">
+                                <label for="jumlah-esteh">Jumlah</label>
+                                <input type="number" id="jumlah-esteh" min="1" max="20" value="1" inputmode="numeric">
+                            </span>
+                        </div>
+
+                        <div class="paket-item">
+                            <input type="checkbox" class="paket-centang" id="paket-esjeruk" name="paket" value="Es Jeruk Peras" data-harga="8000" data-jumlah="jumlah-esjeruk">
+                            <label class="paket-kotak" for="paket-esjeruk" aria-hidden="true"></label>
+                            <label class="paket-nama" for="paket-esjeruk">Es Jeruk Peras</label>
+                            <span class="paket-harga">Rp8.000</span>
+                            <span class="paket-jumlah">
+                                <label for="jumlah-esjeruk">Jumlah</label>
+                                <input type="number" id="jumlah-esjeruk" min="1" max="20" value="1" inputmode="numeric">
+                            </span>
+                        </div>
+
+                        <div class="paket-item">
+                            <input type="checkbox" class="paket-centang" id="paket-kopi" name="paket" value="Kopi Susu Gula Aren" data-harga="12000" data-jumlah="jumlah-kopi">
+                            <label class="paket-kotak" for="paket-kopi" aria-hidden="true"></label>
+                            <label class="paket-nama" for="paket-kopi">Kopi Susu Gula Aren</label>
+                            <span class="paket-harga">Rp12.000</span>
+                            <span class="paket-jumlah">
+                                <label for="jumlah-kopi">Jumlah</label>
+                                <input type="number" id="jumlah-kopi" min="1" max="20" value="1" inputmode="numeric">
+                            </span>
+                        </div>
+
+                        <div class="paket-item">
+                            <input type="checkbox" class="paket-centang" id="paket-mineral" name="paket" value="Air Mineral" data-harga="4000" data-jumlah="jumlah-mineral">
+                            <label class="paket-kotak" for="paket-mineral" aria-hidden="true"></label>
+                            <label class="paket-nama" for="paket-mineral">Air Mineral</label>
+                            <span class="paket-harga">Rp4.000</span>
+                            <span class="paket-jumlah">
+                                <label for="jumlah-mineral">Jumlah</label>
+                                <input type="number" id="jumlah-mineral" min="1" max="20" value="1" inputmode="numeric">
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Dessert -->
+                    <div class="paket-grup" role="group" aria-labelledby="judul-paket-dessert">
+                        <div class="paket-judul" id="judul-paket-dessert"><span class="paket-ikon" aria-hidden="true">🍰</span> Dessert</div>
+
+                        <div class="paket-item">
+                            <input type="checkbox" class="paket-centang" id="paket-eskrim" name="paket" value="Es Krim Vanilla Cokelat" data-harga="10000" data-jumlah="jumlah-eskrim">
+                            <label class="paket-kotak" for="paket-eskrim" aria-hidden="true"></label>
+                            <label class="paket-nama" for="paket-eskrim">Es Krim Vanilla Cokelat</label>
+                            <span class="paket-harga">Rp10.000</span>
+                            <span class="paket-jumlah">
+                                <label for="jumlah-eskrim">Jumlah</label>
+                                <input type="number" id="jumlah-eskrim" min="1" max="20" value="1" inputmode="numeric">
+                            </span>
+                        </div>
+
+                        <div class="paket-item">
+                            <input type="checkbox" class="paket-centang" id="paket-puding" name="paket" value="Puding Karamel" data-harga="8000" data-jumlah="jumlah-puding">
+                            <label class="paket-kotak" for="paket-puding" aria-hidden="true"></label>
+                            <label class="paket-nama" for="paket-puding">Puding Karamel</label>
+                            <span class="paket-harga">Rp8.000</span>
+                            <span class="paket-jumlah">
+                                <label for="jumlah-puding">Jumlah</label>
+                                <input type="number" id="jumlah-puding" min="1" max="20" value="1" inputmode="numeric">
+                            </span>
+                        </div>
+
+                        <div class="paket-item">
+                            <input type="checkbox" class="paket-centang" id="paket-pisang" name="paket" value="Pisang Cokelat Keju" data-harga="13000" data-jumlah="jumlah-pisang">
+                            <label class="paket-kotak" for="paket-pisang" aria-hidden="true"></label>
+                            <label class="paket-nama" for="paket-pisang">Pisang Cokelat Keju</label>
+                            <span class="paket-harga">Rp13.000</span>
+                            <span class="paket-jumlah">
+                                <label for="jumlah-pisang">Jumlah</label>
+                                <input type="number" id="jumlah-pisang" min="1" max="20" value="1" inputmode="numeric">
+                            </span>
+                        </div>
+                    </div>
+
+                    <small class="pesan-error" id="error-paket" aria-live="polite"></small>
+
+                    <!-- Ringkasan live: diperbarui otomatis setiap kali menu/jumlah berubah -->
+                    <div class="ringkasan-live" id="ringkasan-live">
+                        <h4 class="ringkasan-live-judul">🧾 Ringkasan Pesanan</h4>
+                        <ul class="ringkasan-live-daftar" id="live-daftar">
+                            <li class="live-kosong">Belum ada menu yang dipilih.</li>
+                        </ul>
+                        <p class="ringkasan-live-total" role="status" aria-live="polite">
+                            <span>Total item: <b id="live-item">0</b></span>
+                            <span>Total harga: <b id="live-total">Rp0</b></span>
+                        </p>
+                    </div>
                 </div>
 
+                <!-- ===== BAGIAN 3: PILIHAN PEMBAYARAN (RADIO BUTTON) ===== -->
+                <div class="form-blok">
+                    <h3 class="form-bagian-judul"><span class="langkah-bilangan">3</span> Pilihan Pembayaran</h3>
+                    <p class="catatan-kecil">Catatan: seluruh proses pembayaran di website ini merupakan <b>simulasi</b>. Tidak ada transaksi nyata yang diproses; pembayaran sebenarnya dilakukan di kasir restoran setelah pesanan dikonfirmasi.</p>
+
+                    <!-- Kartu Debit / Kredit -->
+                    <div class="bayar-opsi">
+                        <label class="bayar-pilih">
+                            <input type="radio" class="bayar-radio" name="metode-bayar" value="kartu" id="bayar-kartu" checked>
+                            <span class="radio-bulat" aria-hidden="true"></span>
+                            <span class="bayar-judul">
+                                Kartu Debit / Kredit
+                                <small>Bayar menggunakan kartu berlogo Visa / Mastercard</small>
+                            </span>
+                            <span class="logo-bayar" aria-hidden="true">
+                                <span class="logo-kartu logo-visa">VISA</span>
+                                <span class="logo-kartu logo-mc"><span class="mc-circles"><i></i><i></i></span></span>
+                            </span>
+                        </label>
+
+                        <div class="bayar-detail" id="detail-kartu">
+                            <div class="form-grup">
+                                <label for="nokartu">Nomor Kartu <span class="wajib">*</span></label>
+                                <input type="text" id="nokartu" name="nokartu" placeholder="0000 0000 0000 0000"
+                                       inputmode="numeric" maxlength="19" autocomplete="off" aria-describedby="error-nokartu">
+                                <small class="pesan-error" id="error-nokartu" aria-live="polite"></small>
+                            </div>
+                            <p class="catatan-kecil">Masukkan 16 digit nomor kartu debit / kredit Anda.</p>
+                        </div>
+                    </div>
+
+                    <!-- Dompet Digital -->
+                    <div class="bayar-opsi">
+                        <label class="bayar-pilih">
+                            <input type="radio" class="bayar-radio" name="metode-bayar" value="dompet" id="bayar-dompet">
+                            <span class="radio-bulat" aria-hidden="true"></span>
+                            <span class="bayar-judul">
+                                Dompet Digital
+                                <small>Bayar menggunakan e-wallet favorit Anda</small>
+                            </span>
+                            <span class="logo-bayar" aria-hidden="true">
+                                <span class="logo-kartu logo-dompet">E-Wallet</span>
+                            </span>
+                        </label>
+
+                        <div class="bayar-detail sembunyi" id="detail-dompet">
+                            <p class="label-dompet">Pilih Dompet Digital <span class="wajib">*</span></p>
+                            <div class="dompet-grid">
+                                <label class="dompet-item">
+                                    <input type="radio" name="ewallet" value="GoPay">
+                                    <span class="dompet-logo dompet-gopay" aria-hidden="true">GP</span>
+                                    <span>GoPay</span>
+                                </label>
+                                <label class="dompet-item">
+                                    <input type="radio" name="ewallet" value="OVO">
+                                    <span class="dompet-logo dompet-ovo" aria-hidden="true">OVO</span>
+                                    <span>OVO</span>
+                                </label>
+                                <label class="dompet-item">
+                                    <input type="radio" name="ewallet" value="DANA">
+                                    <span class="dompet-logo dompet-dana" aria-hidden="true">D</span>
+                                    <span>DANA</span>
+                                </label>
+                                <label class="dompet-item">
+                                    <input type="radio" name="ewallet" value="ShopeePay">
+                                    <span class="dompet-logo dompet-shopee" aria-hidden="true">SP</span>
+                                    <span>ShopeePay</span>
+                                </label>
+                            </div>
+                            <small class="pesan-error" id="error-ewallet" aria-live="polite"></small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== CATATAN & TOMBOL KIRIM ===== -->
                 <div class="form-grup form-grup-penuh">
                     <label for="catatan">Catatan Tambahan (opsional)</label>
                     <textarea id="catatan" name="catatan" rows="3" placeholder="Contoh: sambal dipisah, tidak pedas, dll."></textarea>
                 </div>
 
                 <div class="form-grup form-grup-penuh">
-                    <button class="btn btn-whatsapp" type="submit">📱 Kirim Pesanan via WhatsApp</button>
-                    <p class="form-sukses" id="form-sukses" role="status"></p>
+                    <button class="btn btn-utama btn-penuh" type="submit">🛒 Kirim Pemesanan</button>
+                    <small class="catatan-kecil">Dengan mengirim form ini, data pesanan akan ditampilkan sebagai ringkasan simulasi di halaman ini.</small>
                 </div>
             </form>
+
+            <!-- Ringkasan pesanan (tampil setelah form berhasil dikirim) -->
+            <div class="ringkasan-pesanan" id="ringkasan-pesanan" role="status" tabindex="-1" hidden>
+                <h3 class="ringkasan-judul">✅ Pemesanan Berhasil</h3>
+                <p class="ringkasan-sub" id="ringkasan-sub"></p>
+                <div class="table-wrap">
+                    <table role="table" class="ringkasan-tabel tabel-stack">
+                        <caption>Ringkasan pesanan Anda</caption>
+                        <thead role="rowgroup">
+                            <tr role="row">
+                                <th role="columnheader" scope="col">Menu</th>
+                                <th role="columnheader" scope="col">Jumlah</th>
+                                <th role="columnheader" scope="col">Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody role="rowgroup" id="ringkasan-isi"></tbody>
+                    </table>
+                </div>
+                <p class="ringkasan-total" id="ringkasan-total"></p>
+                <p class="ringkasan-info" id="ringkasan-info"></p>
+                <p class="baris-tombol">
+                    <a class="btn btn-utama" href="#form-pemesanan" id="ringkasan-lagi">Pesan Lagi</a>
+                    <a class="btn btn-outline" href="#daftar-menu">Lihat Menu</a>
+                </p>
+            </div>
         </section>
 
         <!-- ============ DAFTAR MENU (TABEL) ============ -->
-        <section class="kartu reveal" id="daftar-menu">
+        <section class="kartu reveal" id="daftar-menu" tabindex="-1">
             <h2>🍴 Daftar Menu Lengkap Berdasarkan Kategori</h2>
             <div class="table-wrap">
-                <table class="menu-tabel">
+                <table role="table" class="menu-tabel">
                     <caption>Tabel 2. Daftar menu Restoran Sederhana per kategori</caption>
-                    <tr>
-                        <th>Kategori</th>
-                        <th>Menu</th>
-                        <th>Deskripsi</th>
-                        <th>Harga</th>
+                    <thead role="rowgroup">
+                        <tr role="row">
+                            <th role="columnheader" scope="col">Kategori</th>
+                            <th role="columnheader" scope="col">Menu</th>
+                            <th role="columnheader" scope="col">Deskripsi</th>
+                            <th role="columnheader" scope="col">Harga</th>
+                        </tr>
+                    </thead>
+                    <tbody role="rowgroup">
+                    <tr role="row" id="menu-makanan">
+                        <td role="cell" class="kategori" rowspan="4">Makanan Utama</td>
+                        <td role="cell">Nasi Goreng Spesial</td>
+                        <td role="cell">Nasi goreng dengan telur, ayam, dan acar segar</td>
+                        <td role="cell" class="harga">Rp18.000 / $1.20</td>
                     </tr>
-                    <tr id="menu-makanan">
-                        <td class="kategori" rowspan="4">Makanan Utama</td>
-                        <td>Nasi Goreng Spesial</td>
-                        <td>Nasi goreng dengan telur, ayam, dan acar segar</td>
-                        <td class="harga">Rp18.000 / $1.20</td>
+                    <tr role="row">
+                        <td role="cell">Ayam Geprek Sambal Bawang</td>
+                        <td role="cell">Ayam crispy dengan sambal bawang, level 1–5</td>
+                        <td role="cell" class="harga">Rp20.000 / $1.35</td>
                     </tr>
-                    <tr>
-                        <td>Ayam Geprek Sambal Bawang</td>
-                        <td>Ayam crispy dengan sambal bawang, level 1–5</td>
-                        <td class="harga">Rp20.000 / $1.35</td>
+                    <tr role="row">
+                        <td role="cell">Ayam Bakar Madu</td>
+                        <td role="cell">Ayam bakar bumbu madu, nasi hangat, dan lalapan</td>
+                        <td role="cell" class="harga">Rp22.000 / $1.50</td>
                     </tr>
-                    <tr>
-                        <td>Ayam Bakar Madu</td>
-                        <td>Ayam bakar bumbu madu, nasi hangat, dan lalapan</td>
-                        <td class="harga">Rp22.000 / $1.50</td>
+                    <tr role="row">
+                        <td role="cell">Nasi Ayam Teriyaki</td>
+                        <td role="cell">Ayam saus teriyaki dengan nasi dan sayuran</td>
+                        <td role="cell" class="harga">Rp21.000 / $1.40</td>
                     </tr>
-                    <tr>
-                        <td>Nasi Ayam Teriyaki</td>
-                        <td>Ayam saus teriyaki dengan nasi dan sayuran</td>
-                        <td class="harga">Rp21.000 / $1.40</td>
+                    <tr role="row" id="menu-camilan">
+                        <td role="cell" class="kategori" rowspan="3">Camilan / Appetizer</td>
+                        <td role="cell">Dimsum Ayam (isi 4)</td>
+                        <td role="cell">Dimsum kukus dengan saus mentai gurih</td>
+                        <td role="cell" class="harga">Rp15.000 / $1.00</td>
                     </tr>
-                    <tr id="menu-camilan">
-                        <td class="kategori" rowspan="3">Camilan / Appetizer</td>
-                        <td>Dimsum Ayam (isi 4)</td>
-                        <td>Dimsum kukus dengan saus mentai gurih</td>
-                        <td class="harga">Rp15.000 / $1.00</td>
+                    <tr role="row">
+                        <td role="cell">Kentang Goreng Crispy</td>
+                        <td role="cell">Kentang goreng renyah dengan saus sambal</td>
+                        <td role="cell" class="harga">Rp12.000 / $0.80</td>
                     </tr>
-                    <tr>
-                        <td>Kentang Goreng Crispy</td>
-                        <td>Kentang goreng renyah dengan saus sambal</td>
-                        <td class="harga">Rp12.000 / $0.80</td>
+                    <tr role="row">
+                        <td role="cell">Tahu Walik Pedas</td>
+                        <td role="cell">Tahu goreng isi sayur dengan sambal pedas</td>
+                        <td role="cell" class="harga">Rp10.000 / $0.70</td>
                     </tr>
-                    <tr>
-                        <td>Tahu Walik Pedas</td>
-                        <td>Tahu goreng isi sayur dengan sambal pedas</td>
-                        <td class="harga">Rp10.000 / $0.70</td>
+                    <tr role="row" id="menu-minuman">
+                        <td role="cell" class="kategori" rowspan="4">Minuman Segar</td>
+                        <td role="cell">Es Teh Manis</td>
+                        <td role="cell">Teh hitam manis dingin, segar khas restoran</td>
+                        <td role="cell" class="harga">Rp5.000 / $0.35</td>
                     </tr>
-                    <tr id="menu-minuman">
-                        <td class="kategori" rowspan="4">Minuman Segar</td>
-                        <td>Es Teh Manis</td>
-                        <td>Teh hitam manis dingin, segar khas restoran</td>
-                        <td class="harga">Rp5.000 / $0.35</td>
+                    <tr role="row">
+                        <td role="cell">Es Jeruk Peras</td>
+                        <td role="cell">Jeruk peras asli tanpa pengawet</td>
+                        <td role="cell" class="harga">Rp8.000 / $0.55</td>
                     </tr>
-                    <tr>
-                        <td>Es Jeruk Peras</td>
-                        <td>Jeruk peras asli tanpa pengawet</td>
-                        <td class="harga">Rp8.000 / $0.55</td>
+                    <tr role="row">
+                        <td role="cell">Kopi Susu Gula Aren</td>
+                        <td role="cell">Kopi arabika dengan susu dan gula aren asli</td>
+                        <td role="cell" class="harga">Rp12.000 / $0.80</td>
                     </tr>
-                    <tr>
-                        <td>Kopi Susu Gula Aren</td>
-                        <td>Kopi arabika dengan susu dan gula aren asli</td>
-                        <td class="harga">Rp12.000 / $0.80</td>
+                    <tr role="row">
+                        <td role="cell">Air Mineral</td>
+                        <td role="cell">Botol air mineral dingin 600 ml</td>
+                        <td role="cell" class="harga">Rp4.000 / $0.30</td>
                     </tr>
-                    <tr>
-                        <td>Air Mineral</td>
-                        <td>Botol air mineral dingin 600 ml</td>
-                        <td class="harga">Rp4.000 / $0.30</td>
+                    <tr role="row" id="menu-dessert">
+                        <td role="cell" class="kategori" rowspan="3">Dessert</td>
+                        <td role="cell">Es Krim Vanilla Cokelat</td>
+                        <td role="cell">Es krim vanilla dengan topping cokelat leleh</td>
+                        <td role="cell" class="harga">Rp10.000 / $0.70</td>
                     </tr>
-                    <tr id="menu-dessert">
-                        <td class="kategori" rowspan="3">Dessert</td>
-                        <td>Es Krim Vanilla Cokelat</td>
-                        <td>Es krim vanilla dengan topping cokelat leleh</td>
-                        <td class="harga">Rp10.000 / $0.70</td>
+                    <tr role="row">
+                        <td role="cell">Puding Karamel</td>
+                        <td role="cell">Puding lembut dengan saus karamel manis</td>
+                        <td role="cell" class="harga">Rp8.000 / $0.55</td>
                     </tr>
-                    <tr>
-                        <td>Puding Karamel</td>
-                        <td>Puding lembut dengan saus karamel manis</td>
-                        <td class="harga">Rp8.000 / $0.55</td>
+                    <tr role="row">
+                        <td role="cell">Pisang Cokelat Keju</td>
+                        <td role="cell">Pisang kukus, topping cokelat dan keju parut</td>
+                        <td role="cell" class="harga">Rp13.000 / $0.90</td>
                     </tr>
-                    <tr>
-                        <td>Pisang Cokelat Keju</td>
-                        <td>Pisang kukus, topping cokelat dan keju parut</td>
-                        <td class="harga">Rp13.000 / $0.90</td>
-                    </tr>
+                    </tbody>
                 </table>
             </div>
         </section>
 
         <!-- ============ PROMO ============ -->
-        <section class="kartu reveal" id="promo">
+        <section class="kartu reveal" id="promo" tabindex="-1">
             <h2>🔥 Promo Minggu Ini</h2>
 
             <h3>🎁 Paket Hemat (Combo)</h3>
             <div class="table-wrap">
-                <table class="promo-paket">
+                <table role="table" class="promo-paket tabel-stack">
                     <caption>Tabel 3. Paket promo combo harga spesial</caption>
-                    <tr>
-                        <th>Paket</th>
-                        <th>Isi Paket</th>
-                        <th>Harga Normal</th>
-                        <th>Harga Promo</th>
-                        <th>Hemat</th>
+                    <thead role="rowgroup">
+                        <tr role="row">
+                            <th role="columnheader" scope="col">Paket</th>
+                            <th role="columnheader" scope="col">Isi Paket</th>
+                            <th role="columnheader" scope="col">Harga Normal</th>
+                            <th role="columnheader" scope="col">Harga Promo</th>
+                            <th role="columnheader" scope="col">Hemat</th>
+                        </tr>
+                    </thead>
+                    <tbody role="rowgroup">
+                        <tr role="row">
+                        <td class="nama" role="cell" data-label="Paket">Paket Hemat A</td>
+                        <td role="cell" data-label="Isi Paket">Nasi Goreng Spesial + Es Teh Manis</td>
+                        <td class="coret" role="cell" data-label="Harga Normal">Rp23.000</td>
+                        <td class="promo" role="cell" data-label="Harga Promo">Rp20.000</td>
+                        <td class="hemat" role="cell" data-label="Hemat">Rp3.000</td>
                     </tr>
-                    <tr>
-                        <td class="nama">Paket Hemat A</td>
-                        <td>Nasi Goreng Spesial + Es Teh Manis</td>
-                        <td class="coret">Rp23.000</td>
-                        <td class="promo">Rp20.000</td>
-                        <td class="hemat">Rp3.000</td>
+                    <tr role="row">
+                        <td class="nama" role="cell" data-label="Paket">Paket Hemat B</td>
+                        <td role="cell" data-label="Isi Paket">Ayam Geprek Sambal Bawang + Es Teh Manis</td>
+                        <td class="coret" role="cell" data-label="Harga Normal">Rp25.000</td>
+                        <td class="promo" role="cell" data-label="Harga Promo">Rp22.000</td>
+                        <td class="hemat" role="cell" data-label="Hemat">Rp3.000</td>
                     </tr>
-                    <tr>
-                        <td class="nama">Paket Hemat B</td>
-                        <td>Ayam Geprek Sambal Bawang + Es Teh Manis</td>
-                        <td class="coret">Rp25.000</td>
-                        <td class="promo">Rp22.000</td>
-                        <td class="hemat">Rp3.000</td>
+                    <tr role="row">
+                        <td class="nama" role="cell" data-label="Paket">Paket Nongkrong</td>
+                        <td role="cell" data-label="Isi Paket">Kentang Goreng Crispy + Tahu Walik Pedas + 2 Kopi Susu Gula Aren</td>
+                        <td class="coret" role="cell" data-label="Harga Normal">Rp39.000</td>
+                        <td class="promo" role="cell" data-label="Harga Promo">Rp35.000</td>
+                        <td class="hemat" role="cell" data-label="Hemat">Rp4.000</td>
                     </tr>
-                    <tr>
-                        <td class="nama">Paket Nongkrong</td>
-                        <td>Kentang Goreng Crispy + Tahu Walik Pedas + 2 Kopi Susu Gula Aren</td>
-                        <td class="coret">Rp39.000</td>
-                        <td class="promo">Rp35.000</td>
-                        <td class="hemat">Rp4.000</td>
+                    <tr role="row">
+                        <td class="nama" role="cell" data-label="Paket">Paket Keluarga</td>
+                        <td role="cell" data-label="Isi Paket">2 Ayam Bakar Madu + 2 Nasi Goreng Spesial + 2 Es Teh Manis + 1 Dimsum Ayam</td>
+                        <td class="coret" role="cell" data-label="Harga Normal">Rp88.000</td>
+                        <td class="promo" role="cell" data-label="Harga Promo">Rp79.000</td>
+                        <td class="hemat" role="cell" data-label="Hemat">Rp9.000</td>
                     </tr>
-                    <tr>
-                        <td class="nama">Paket Keluarga</td>
-                        <td>2 Ayam Bakar Madu + 2 Nasi Goreng Spesial + 2 Es Teh Manis + 1 Dimsum Ayam</td>
-                        <td class="coret">Rp88.000</td>
-                        <td class="promo">Rp79.000</td>
-                        <td class="hemat">Rp9.000</td>
+                    <tr role="row">
+                        <td class="catatan" role="cell" data-label="Catatan" colspan="5">* Harga promo berlaku hingga 31 Oktober 2026, tidak dapat digabung dengan promo lainnya.</td>
                     </tr>
-                    <tr>
-                        <td class="catatan" colspan="5">* Harga promo berlaku hingga 31 Oktober 2026, tidak dapat digabung dengan promo lainnya.</td>
-                    </tr>
+                    </tbody>
                 </table>
             </div>
             <p class="baris-tombol">
-                <a class="btn btn-promo js-whatsapp" href="https://wa.me/6281234567890?text=Halo!%20Saya%20mau%20pesan%20Paket%20Promo%20di%20Restoran%20Sederhana."
-                   data-pesan="Halo! Saya mau pesan Paket Promo di Restoran Sederhana." target="_blank" rel="noopener">🎉 Pesan Paket Promo</a>
+                <a class="btn btn-promo" href="#form-pemesanan">🎉 Pesan Paket Promo</a>
             </p>
 
             <h3>📅 Promo Spesial Harian</h3>
             <div class="table-wrap">
-                <table class="promo-harian">
+                <table role="table" class="promo-harian tabel-stack">
                     <caption>Tabel 4. Promo diskon dan bonus setiap hari</caption>
-                    <tr>
-                        <th>Hari</th>
-                        <th>Menu Promo</th>
-                        <th>Diskon / Bonus</th>
+                    <thead role="rowgroup">
+                        <tr role="row">
+                            <th role="columnheader" scope="col">Hari</th>
+                            <th role="columnheader" scope="col">Menu Promo</th>
+                            <th role="columnheader" scope="col">Diskon / Bonus</th>
+                        </tr>
+                    </thead>
+                    <tbody role="rowgroup">
+                        <tr role="row">
+                            <td class="hari" role="cell" data-label="Hari">Senin</td>
+                        <td role="cell" data-label="Menu Promo">Ayam Geprek Sambal Bawang</td>
+                        <td class="diskon" role="cell" data-label="Diskon / Bonus">Diskon 20%</td>
                     </tr>
-                    <tr>
-                        <td class="hari">Senin</td>
-                        <td>Ayam Geprek Sambal Bawang</td>
-                        <td class="diskon">Diskon 20%</td>
+                    <tr role="row">
+                        <td class="hari" role="cell" data-label="Hari">Selasa</td>
+                        <td role="cell" data-label="Menu Promo">Dimsum Ayam</td>
+                        <td class="diskon" role="cell" data-label="Diskon / Bonus">Beli 3 Gratis 1</td>
                     </tr>
-                    <tr>
-                        <td class="hari">Selasa</td>
-                        <td>Dimsum Ayam</td>
-                        <td class="diskon">Beli 3 Gratis 1</td>
+                    <tr role="row">
+                        <td class="hari" role="cell" data-label="Hari">Rabu</td>
+                        <td role="cell" data-label="Menu Promo">Es Jeruk Peras</td>
+                        <td class="diskon" role="cell" data-label="Diskon / Bonus">Beli 1 Gratis 1</td>
                     </tr>
-                    <tr>
-                        <td class="hari">Rabu</td>
-                        <td>Es Jeruk Peras</td>
-                        <td class="diskon">Beli 1 Gratis 1</td>
+                    <tr role="row">
+                        <td class="hari" role="cell" data-label="Hari">Kamis</td>
+                        <td role="cell" data-label="Menu Promo">Nasi Goreng Spesial + Es Teh</td>
+                        <td class="diskon" role="cell" data-label="Diskon / Bonus">Hemat Rp3.000</td>
                     </tr>
-                    <tr>
-                        <td class="hari">Kamis</td>
-                        <td>Nasi Goreng Spesial + Es Teh</td>
-                        <td class="diskon">Hemat Rp3.000</td>
+                    <tr role="row">
+                        <td class="hari" role="cell" data-label="Hari">Jumat</td>
+                        <td role="cell" data-label="Menu Promo">Kopi Susu Gula Aren</td>
+                        <td class="diskon" role="cell" data-label="Diskon / Bonus">Diskon 25%</td>
                     </tr>
-                    <tr>
-                        <td class="hari">Jumat</td>
-                        <td>Kopi Susu Gula Aren</td>
-                        <td class="diskon">Diskon 25%</td>
+                    <tr role="row">
+                        <td class="hari" role="cell" data-label="Hari">Sabtu</td>
+                        <td role="cell" data-label="Menu Promo">Pembelian minimal Rp50.000</td>
+                        <td class="diskon" role="cell" data-label="Diskon / Bonus">Gratis Dessert</td>
                     </tr>
-                    <tr>
-                        <td class="hari">Sabtu</td>
-                        <td>Pembelian minimal Rp50.000</td>
-                        <td class="diskon">Gratis Dessert</td>
+                    <tr role="row">
+                        <td class="hari" role="cell" data-label="Hari">Minggu</td>
+                        <td role="cell" data-label="Menu Promo">Paket Keluarga</td>
+                        <td class="diskon" role="cell" data-label="Diskon / Bonus">Hemat Rp9.000</td>
                     </tr>
-                    <tr>
-                        <td class="hari">Minggu</td>
-                        <td>Paket Keluarga</td>
-                        <td class="diskon">Hemat Rp9.000</td>
-                    </tr>
+                    </tbody>
                 </table>
             </div>
         </section>
 
         <!-- ============ MENU FAVORIT (KARTU) ============ -->
-        <section class="kartu reveal" id="favorit">
+        <section class="kartu reveal" id="favorit" tabindex="-1">
             <h2>⭐ Menu Favorit Pelanggan</h2>
             <p>Berikut 5 menu best-seller minggu ini yang paling sering dipesan:</p>
 
             <div class="favorit-grid">
                 <article class="kartu-menu">
                     <div class="kartu-menu-gambar">
-                        <img loading="lazy" decoding="async" src="gambar/dimsum.png" alt="Dimsum" width="200" height="150">
+                        <img loading="lazy" decoding="async" src="gambar/dimsum.png" alt="Dimsum ayam kukus dengan saus, disajikan di keranjang bambu" width="200" height="150">
                     </div>
                     <div class="kartu-menu-isi">
                         <h3>Dimsum</h3>
                         <p>Dimsum lezat dan cocok untuk camilan.</p>
                         <p class="harga-menu">Harga: Rp15.000 / $1</p>
-                        <a class="btn btn-kecil btn-whatsapp js-whatsapp"
-                           href="https://wa.me/6281234567890?text=Halo!%20Saya%20mau%20pesan%20Dimsum%20Ayam%201%20porsi."
-                           data-pesan="Halo! Saya mau pesan Dimsum Ayam 1 porsi." target="_blank" rel="noopener">Pesan Dimsum →</a>
+                        <a class="btn btn-kecil btn-utama js-pilih-paket" href="#form-pemesanan" data-pilih="paket-dimsum">Pesan Dimsum →</a>
                     </div>
                 </article>
 
                 <article class="kartu-menu">
                     <div class="kartu-menu-gambar">
-                        <img loading="lazy" decoding="async" src="gambar/nasigoreng.png" alt="Nasi Goreng" width="200" height="150">
+                        <img loading="lazy" decoding="async" src="gambar/nasigoreng.png" alt="Nasi goreng spesial dengan telur mata sapi dan acar" width="200" height="150">
                     </div>
                     <div class="kartu-menu-isi">
                         <h3>Nasi Goreng</h3>
                         <p>Nasi goreng dengan rasa gurih dan nikmat.</p>
                         <p class="harga-menu">Harga: Rp18.000 / $1.20</p>
-                        <a class="btn btn-kecil btn-whatsapp js-whatsapp"
-                           href="https://wa.me/6281234567890?text=Halo!%20Saya%20mau%20pesan%20Nasi%20Goreng%20Spesial%201%20porsi."
-                           data-pesan="Halo! Saya mau pesan Nasi Goreng Spesial 1 porsi." target="_blank" rel="noopener">Pesan Nasi Goreng →</a>
+                        <a class="btn btn-kecil btn-utama js-pilih-paket" href="#form-pemesanan" data-pilih="paket-nasgor">Pesan Nasi Goreng →</a>
                     </div>
                 </article>
 
                 <article class="kartu-menu">
                     <div class="kartu-menu-gambar">
-                        <img loading="lazy" decoding="async" src="gambar/ayamgeprek.webp" alt="Ayam Geprek" width="200" height="150">
+                        <img loading="lazy" decoding="async" src="gambar/ayamgeprek.webp" alt="Ayam geprek sambal bawang dengan nasi putih" width="200" height="150">
                     </div>
                     <div class="kartu-menu-isi">
                         <h3>Ayam Geprek</h3>
                         <p>Ayam crispy dengan sambal yang menggugah selera.</p>
                         <p class="harga-menu">Harga: Rp20.000 / $1.35</p>
-                        <a class="btn btn-kecil btn-whatsapp js-whatsapp"
-                           href="https://wa.me/6281234567890?text=Halo!%20Saya%20mau%20pesan%20Ayam%20Geprek%201%20porsi."
-                           data-pesan="Halo! Saya mau pesan Ayam Geprek 1 porsi." target="_blank" rel="noopener">Pesan Ayam Geprek →</a>
+                        <a class="btn btn-kecil btn-utama js-pilih-paket" href="#form-pemesanan" data-pilih="paket-geprek">Pesan Ayam Geprek →</a>
                     </div>
                 </article>
 
                 <article class="kartu-menu">
                     <div class="kartu-menu-gambar">
-                        <img loading="lazy" decoding="async" src="gambar/ayambakar.png" alt="Ayam Bakar" width="200" height="150">
+                        <img loading="lazy" decoding="async" src="gambar/ayambakar.png" alt="Ayam bakar madu dengan lalapan dan sambal" width="200" height="150">
                     </div>
                     <div class="kartu-menu-isi">
                         <h3>Ayam Bakar</h3>
                         <p>Ayam bakar dengan bumbu khas restoran.</p>
                         <p class="harga-menu">Harga: Rp22.000 / $1.50</p>
-                        <a class="btn btn-kecil btn-whatsapp js-whatsapp"
-                           href="https://wa.me/6281234567890?text=Halo!%20Saya%20mau%20pesan%20Ayam%20Bakar%20Madu%201%20porsi."
-                           data-pesan="Halo! Saya mau pesan Ayam Bakar Madu 1 porsi." target="_blank" rel="noopener">Pesan Ayam Bakar →</a>
+                        <a class="btn btn-kecil btn-utama js-pilih-paket" href="#form-pemesanan" data-pilih="paket-bakar">Pesan Ayam Bakar →</a>
                     </div>
                 </article>
 
                 <article class="kartu-menu">
                     <div class="kartu-menu-gambar">
-                        <img loading="lazy" decoding="async" src="gambar/esteh.png" alt="Es Teh" width="200" height="150">
+                        <img loading="lazy" decoding="async" src="gambar/esteh.png" alt="Es teh manis segar dengan es batu" width="200" height="150">
                     </div>
                     <div class="kartu-menu-isi">
                         <h3>Es Teh</h3>
                         <p>Minuman segar untuk menemani makanan Anda.</p>
                         <p class="harga-menu">Harga: Rp5.000 / $0.35</p>
-                        <a class="btn btn-kecil btn-whatsapp js-whatsapp"
-                           href="https://wa.me/6281234567890?text=Halo!%20Saya%20mau%20pesan%20Es%20Teh%20Manis%201%20gelas."
-                           data-pesan="Halo! Saya mau pesan Es Teh Manis 1 gelas." target="_blank" rel="noopener">Pesan Es Teh →</a>
+                        <a class="btn btn-kecil btn-utama js-pilih-paket" href="#form-pemesanan" data-pilih="paket-esteh">Pesan Es Teh →</a>
                     </div>
                 </article>
             </div>
         </section>
 
         <!-- ============ VIDEO ============ -->
-        <section class="kartu reveal" id="video">
+        <section class="kartu reveal" id="video" tabindex="-1">
             <h2>🎥 Video Promosi Restoran</h2>
             <div class="video-grid">
                 <div class="video-bingkai">
-                    <video controls>
+                    <video controls playsinline preload="metadata" aria-label="Video promosi Restoran Sederhana">
                         <source src="video/promosi.mp4" type="video/mp4">
                         Browser Anda tidak mendukung pemutaran video.
                     </video>
@@ -505,49 +775,46 @@
                     </p>
                     <p>
                         Tertarik? Langsung <a href="#promo">cek promo minggu ini</a>
-                        atau <a class="js-whatsapp" href="https://wa.me/6281234567890?text=Halo%20Restoran%20Sederhana!%20Saya%20mau%20pesan%20makanan."
-                        data-pesan="Halo Restoran Sederhana! Saya mau pesan makanan." target="_blank" rel="noopener">pesan via WhatsApp</a>.
+                        atau <a href="#form-pemesanan">isi form pemesanan</a> untuk pesan sekarang.
                     </p>
                 </div>
             </div>
         </section>
 
         <!-- ============ ALAMAT / KONTAK ============ -->
-        <section class="kartu reveal" id="alamat">
+        <section class="kartu reveal" id="alamat" tabindex="-1">
             <h2>📍 Alamat Restoran</h2>
             <div class="table-wrap">
-                <table class="alamat-tabel">
-                    <tr>
-                        <td class="label">Nama</td>
-                        <td><b>Restoran Sederhana</b></td>
+                <table role="table" class="alamat-tabel">
+                    <tbody role="rowgroup"><tr role="row">
+                        <td role="cell" class="label">Nama</td>
+                        <td role="cell"><b>Restoran Sederhana</b></td>
                     </tr>
-                    <tr>
-                        <td class="label">Alamat</td>
-                        <td>Jl. Raya Margonda No. 25, Depok, Jawa Barat</td>
+                    <tr role="row">
+                        <td role="cell" class="label">Alamat</td>
+                        <td role="cell">Jl. Raya Margonda No. 25, Depok, Jawa Barat</td>
                     </tr>
-                    <tr>
-                        <td class="label">Jam Buka</td>
-                        <td>Buka Setiap Hari: 10.00 – 22.00 WIB</td>
+                    <tr role="row">
+                        <td role="cell" class="label">Jam Buka</td>
+                        <td role="cell">Buka Setiap Hari: 10.00 – 22.00 WIB</td>
                     </tr>
-                    <tr>
-                        <td class="label">WhatsApp</td>
-                        <td><a href="https://wa.me/6281234567890" target="_blank" rel="noopener">0812-3456-7890</a></td>
+                    <tr role="row">
+                        <td role="cell" class="label">WhatsApp</td>
+                        <td role="cell"><a href="https://wa.me/6281234567890" target="_blank" rel="noopener">0812-3456-7890</a></td>
                     </tr>
-                    <tr>
-                        <td class="label">Telepon</td>
-                        <td><a href="tel:+62217890123">(021) 789-0123</a></td>
+                    <tr role="row">
+                        <td role="cell" class="label">Telepon</td>
+                        <td role="cell"><a href="tel:+62217890123">(021) 789-0123</a></td>
                     </tr>
-                    <tr>
-                        <td class="label">Email</td>
-                        <td><a href="mailto:halo@restoransederhana.id">halo@restoransederhana.id</a></td>
-                    </tr>
+                    <tr role="row">
+                        <td role="cell" class="label">Email</td>
+                        <td role="cell"><a href="mailto:halo@restoransederhana.id">halo@restoransederhana.id</a></td>
+                    </tr></tbody>
                 </table>
             </div>
 
             <p class="baris-tombol">
-                <a class="btn btn-outline js-whatsapp"
-                   href="https://wa.me/6281234567890?text=Halo%20Restoran%20Sederhana!%20Saya%20mau%20pesan%20makanan."
-                   data-pesan="Halo Restoran Sederhana! Saya mau pesan makanan." target="_blank" rel="noopener">📱 Pesan via WhatsApp</a>
+                <a class="btn btn-utama" href="#form-pemesanan">🛒 Pesan Sekarang</a>
                 <a class="btn btn-outline" href="https://maps.google.com/?q=Restoran+Sederhana+Margonda+Depok" target="_blank" rel="noopener">🗺️ Lihat di Google Maps</a>
                 <a class="btn btn-outline kembali-atas" href="#atas">⬆️ Kembali ke atas</a>
             </p>
@@ -589,9 +856,8 @@
                 <li><a href="#promo">Promo Minggu Ini 🔥</a></li>
             </ul>
 
-            <a class="btn btn-whatsapp btn-penuh js-whatsapp"
-               href="https://wa.me/6281234567890?text=Halo%20Restoran%20Sederhana!%20Saya%20mau%20pesan%20makanan."
-               data-pesan="Halo Restoran Sederhana! Saya mau pesan makanan." target="_blank" rel="noopener">📱 Pesan via WhatsApp</a>
+            <a class="btn btn-utama btn-penuh"
+               href="#form-pemesanan">🛒 Isi Form Pemesanan</a>
         </section>
     </aside>
 
@@ -610,6 +876,7 @@
             <ul class="footer-tautan">
                 <li><a href="#beranda">Beranda</a></li>
                 <li><a href="#cara-pemesanan">Cara Pesan</a></li>
+                <li><a href="#form-pemesanan">Form Pesan</a></li>
                 <li><a href="#daftar-menu">Menu</a></li>
                 <li><a href="#promo">Promo</a></li>
                 <li><a href="#alamat">Kontak</a></li>
